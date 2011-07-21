@@ -1,10 +1,11 @@
 {
   "name": "nssocket",
   "description": "Namespaced sockets with automatic buffering.",
-  "version": "0.1.0",
-  "author": "hij1nx <hij1nx@me.com>",
-  "contributors": [
-    { "name": "Jameson Lee", "email": "jamesonjlee@gmail.com" }
+  "version": "0.1.1",
+  "author": {"name":"hij1nx", "email":"hij1nx@me.com"},
+  "maintainers": [
+    { "name": "hij1nx", "email": "hij1nx@nodejitsu.com" },
+    { "name": "jamesonjlee", "email": "jamesonjlee@gmail.com" }
   ],
   "repository": {
     "type": "git",
@@ -16,12 +17,12 @@
   "devDependencies": {
     "vows" : ">= 0.5.8"
   },
-  "main": "./lib",
+  "main": "./lib/nssocket",
   "engines": {
-    "node": "0.4.x || 0.5.x"
+    "node": ">= 0.4.0"
   },
-  "private": false,
   "scripts": {
     "test": "vows --spec test/tcp-test.js"
   }
 }
+ 

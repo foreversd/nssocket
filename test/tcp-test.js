@@ -11,7 +11,7 @@ var fs = require('fs'),
     spawn = require('child_process').spawn,
     vows = require('vows'),
     net = require('net'),
-    nssocket = require('../lib').NsSocket;
+    nssocket = require('../lib/nssocket').NsSocket;
 
 var TCP_PORT = 30103;
 

@@ -11,9 +11,7 @@ var fs = require('fs'),
     spawn = require('child_process').spawn,
     vows = require('vows'),
     tls = require('tls'),
-    orchestra = require('../lib/orchestra');
-    nssocket = orchestra.NsSocket;
-    common = orchestra.Common;
+    nssocket = require('../lib/nssocket').NsSocket;
 
 var TLS_PORT = 50305,
     CA_DIR = '../CA/',
