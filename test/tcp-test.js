@@ -59,8 +59,7 @@ vows.describe('nssocket').addBatch({
           socket.on('data.}here.}is', this.callback.bind(null, null));
           s.write('here.}is.}something.}');
         },
-        "we should see it show up with the delimiter" : function (ign, event, datas) {
-          assert.isString(event);
+        "we should see it show up with the delimiter" : function (ign, datas) {
           assert.isArray(datas);
           assert.length(datas, 3);
           assert.isString(datas[0]);
@@ -69,13 +68,12 @@ vows.describe('nssocket').addBatch({
           assert.equal(datas[1], 'is');
         },
         "and if we were to set it to idle" : {
-          topic : function (_,_,socket,s) {
+          topic : function (_,socket,s) {
             socket.once('idle', this.callback.bind(null,null,socket,s));
             socket.setIdle(100);
           },
-          "we should see the socket emit `idle` event" : function (ign, socket, s, event) {
-            assert.isString(event);
-            assert.equal(event, 'idle');
+          "we should see the socket emit `idle` event" : function (ign, socket, s) {
+            assert.isNull(ign);
           },
           "If we were to send a message on the socket" : {
             topic : function (socket, s) {
@@ -97,9 +95,8 @@ vows.describe('nssocket').addBatch({
                 socket.on('close', this.callback.bind(null,null,socket,s));
                 s.end();
               },
-              "we should see it close" : function (ign, socket, s, event) {
-                assert.isString(event);
-                assert.equal(event, 'close');
+              "we should see it close without errors" : function (ign, socket, s, err) {
+                assert.isUndefined(err);
               }
             }
           }
