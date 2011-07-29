@@ -11,10 +11,11 @@ var fs = require('fs'),
     spawn = require('child_process').spawn,
     vows = require('vows'),
     tls = require('tls'),
-    nssocket = require('../lib/nssocket').NsSocket;
+    nssocket = require('../lib/nssocket').NsSocket,
+    helper = require('./helper');
 
 var TLS_PORT = 50305,
-    CA_DIR = '../CA/',
+    CA_DIR = './CA/',
     CA_NAME = 'snake-oil';
 
 var serverOpts = {
@@ -24,7 +25,7 @@ var serverOpts = {
     requestCert:    true,
     rejectUnauthorized: false
 };
-var tlsSocket = common.createTlsSocket(serverOpts),
+var tlsSocket = helper.createTlsSocket(serverOpts),
     tlsServer = tls.createServer(serverOpts),
     tlsOpt;
 
