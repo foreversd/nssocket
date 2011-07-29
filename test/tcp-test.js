@@ -56,7 +56,7 @@ vows.describe('nssocket').addBatch({
       },
       "and if we were to send data on it": {
         topic : function (socket, s) {
-          socket.on('data.}here.}is', this.callback.bind(null,null));
+          socket.on('data.}here.}is', this.callback.bind(null, null));
           s.write('here.}is.}something.}');
         },
         "we should see it show up with the delimiter" : function (ign, event, datas) {

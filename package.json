@@ -5,14 +5,14 @@
   "author": {"name":"hij1nx", "email":"hij1nx@me.com"},
   "maintainers": [
     { "name": "hij1nx", "email": "hij1nx@nodejitsu.com" },
-    { "name": "jamesonjlee", "email": "jamesonjlee@gmail.com" }
+    { "name": "jamesonjlee", "email": "jameson@nodejitsu.com" }
   ],
   "repository": {
     "type": "git",
     "url": "http://github.com/nodejitsu/nssocket.git"
   },
   "dependencies": {
-    "eventemitter2" : ">= v0.2.5"
+    "eventemitter2" : ">= v0.3.x"
   },
   "devDependencies": {
     "vows" : ">= 0.5.8"
