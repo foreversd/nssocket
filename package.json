@@ -1,7 +1,7 @@
 {
   "name": "nssocket",
   "description": "Namespaced sockets with automatic buffering.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": {"name":"hij1nx", "email":"hij1nx@me.com"},
   "maintainers": [
     { "name": "hij1nx", "email": "hij1nx@nodejitsu.com" },
