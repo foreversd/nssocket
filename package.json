@@ -12,10 +12,10 @@
     "url": "http://github.com/nodejitsu/nssocket.git"
   },
   "dependencies": {
-    "eventemitter2" : ">= v0.3.x"
+    "eventemitter2" : ">= v0.4.x"
   },
   "devDependencies": {
-    "vows" : ">= 0.5.8"
+    "vows" : ">= 0.5.9"
   },
   "main": "./lib/nssocket",
   "engines": {
