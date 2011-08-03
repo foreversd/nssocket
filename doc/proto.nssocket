@@ -1,0 +1,16 @@
+# Emits said event with some minor handling
+# all emits start with 'type' delimiter 'relevant event info'
+NsSocket.emitStart = function emitStart() 
+NsSocket.emitData = function emitData(message) 
+NsSocket.emitClose = function emitClose(had_error) 
+NsSocket.emitError = function (error) 
+NsSocket.emitIdle = function emitIdle()
+
+# Simply send data though here after setup
+NsSocket.send = function send(data, callback) 
+
+# Idle timer setter (timeout/SYN-ACK stuff)
+NsSocket.setIdle = function setIdle(time)
+
+# De-registers all listeners, recommended when switching sockets
+NsSocket.destroy = function destroy()
