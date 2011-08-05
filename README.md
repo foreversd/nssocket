@@ -104,8 +104,10 @@ nsSocket.connect(80, '127.0.0.1', function onConnect() {
 ```
 
 ## Coming soon
-- Add UDP support
+- More & Better Tests
+- Make Demo in examples/
 - Add automatic socket creation (no more passing in sockets!)
+- Add UDP support
 - Add nssocket.Server functionality (returns a nssocket!)
 - Cake(?)
 
@@ -113,8 +115,8 @@ nsSocket.connect(80, '127.0.0.1', function onConnect() {
   TBA
 
 ### Maintainers
-Paolo Fragmenti,
-Jameson Lee
+[Paolo Fragmenti](https://github.com/hij1nx),
+[Jameson Lee](https://github.com/drjackal)
 
 ### License
 MIT?
