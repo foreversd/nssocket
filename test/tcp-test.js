@@ -59,16 +59,18 @@ vows.describe('nssocket').addBatch({
           socket.on('data.}here.}is', this.callback.bind(null, null));
           s.write('here.}is.}something.}');
         },
-        "we should see it show up with the delimiter" : function (ign, datas) {
-          assert.isArray(datas);
-          assert.length(datas, 3);
-          assert.isString(datas[0]);
-          assert.isString(datas[1]);
-          assert.isString(datas[2]);
-          assert.equal(datas[1], 'is');
+        "we should see it show up with the delimiter" : function (ign, tags, data) {
+          assert.isArray(tags);
+          assert.length(tags, 2);
+          assert.isString(tags[0]);
+          assert.isString(tags[1]);
+          assert.isString(data);
+          assert.equal(tags[0], 'here');
+          assert.equal(tags[1], 'is');
+          assert.equal(data, 'something');
         },
         "and if we were to set it to idle" : {
-          topic : function (_,socket,s) {
+          topic : function (_,_,socket,s) {
             socket.once('idle', this.callback.bind(null,null,socket,s));
             socket.setIdle(100);
           },
@@ -78,7 +80,7 @@ vows.describe('nssocket').addBatch({
           "If we were to send a message on the socket" : {
             topic : function (socket, s) {
               s.on('data', this.callback.bind(null,null, socket, s));
-              socket.send(['hello','world','andsome']);
+              socket.send(['hello','world'], '{some: "json", data:123}');
             },
             "we should see it on the other end" : function (ign, socket, s, data) {
               assert.isObject(data);
@@ -87,7 +89,7 @@ vows.describe('nssocket').addBatch({
               assert.length(arr, 4);
               assert.equal(arr[0], 'hello');
               assert.equal(arr[1], 'world');
-              assert.equal(arr[2], 'andsome');
+              assert.equal(arr[2], '{some: "json", data:123}');
               assert.equal(arr[3], '');
             },
             "and if we were to close the socket" : {
