@@ -15,11 +15,11 @@
     "eventemitter2" : "0.4.x"
   },
   "devDependencies": {
-    "vows" : ">= 0.5.9"
+    "vows" : "0.5.x"
   },
   "main": "./lib/nssocket",
   "engines": {
-    "node": ">= 0.4.0"
+    "node": "0.4.x"
   },
   "scripts": {
     "test": "vows --spec test/tcp-test.js"

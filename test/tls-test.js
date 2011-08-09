@@ -15,18 +15,17 @@ var fs = require('fs'),
     helper = require('./helper');
 
 var TLS_PORT = 50305,
-    CA_DIR = './CA/',
     CA_NAME = 'snake-oil';
 
 var serverOpts = {
-    key:            fs.readFileSync(CA_DIR+CA_NAME+'-key.pem'),
-    cert:           fs.readFileSync(CA_DIR+CA_NAME+'-cert.pem'),
+    key:            fs.readFileSync(path.join(__dirname, 'CA', CA_NAME+'-key.pem')),
+    cert:           fs.readFileSync(path.join(__dirname, 'CA', CA_NAME+'-cert.pem')),
     //ca:           fs.readFileSync(conf.tls.ca),
     requestCert:    true,
     rejectUnauthorized: false
 };
 var tlsSocket = helper.createTlsSocket(serverOpts),
-    tlsServer = tls.createServer(serverOpts),
+    tlsServer = tls.createServer(serverOpts, console.log),
     tlsOpt;
 
 tlsOpt = {
@@ -52,26 +51,18 @@ vows.describe('orchestra/nssocket').addBatch({
     "If we were to connect the socket" : {
       topic : function (socket) {
         var that = this;
-        tlsServer.on('secureConnection', function (s) {
-        //tlsServer.on('connection', function (s) {
-          that.callback(null,socket,s);
-        });
-        
-        // TODO: There is a problem here with tlsServer hanging with vows???
-        
-        
+        tlsServer.on('secureConnection', this.callback(null,null, socket, s));
+        // the above does not work
         tlsServer.on('listening', function () {
-          tlsSocket.connect(TLS_PORT, '127.0.0.1', function () {
-          //socket.connect(TLS_PORT, '127.0.0.1', function () {
-            console.log('hellow');
+          socket.connect(TLS_PORT, '127.0.0.1', function () {
+            console.dir('hello');
           });
         });
         tlsServer.listen(TLS_PORT);
       },
       "it should actually connect": function (ign, socket, s) {
         assert.instanceOf(socket, nssocket);
-        assert.isNotNull(s.authorized);
-        assert.isString(s.authorizationError);
+        assert.isTrue(!!s.authorized);
       },
       "without any errors" : function () {
         assert.isTrue(true);
@@ -81,8 +72,7 @@ vows.describe('orchestra/nssocket').addBatch({
           socket.on('data::here::is', this.callback.bind(null,null));
           s.write('here::is::something::');
         },
-        "we should see it show up with the delimiter" : function (ign, event, datas) {
-          assert.isString(event);
+        "we should see it show up with the delimiter" : function (ign, datas) {
           assert.isArray(datas);
           assert.length(datas, 3);
           assert.isString(datas[0]);
@@ -95,23 +85,19 @@ vows.describe('orchestra/nssocket').addBatch({
             socket.once('idle', this.callback.bind(null,null,socket,s));
             socket.setIdle(100);
           },
-          "we should see the socket emit `idle` event" : function (ign, socket, s, event) {
-            assert.isString(event);
-            assert.equal(event, 'idle');
+          "socket emits `idle` event" : function (ign, socket, s) {
           },
           "and if we were to close the socket" : {
             topic : function (socket,s) {
               socket.on('close', this.callback.bind(null,null,socket,s));
               s.end();
             },
-            "we should see it close" : function (ign, socket, s, event) {
-              assert.isString(event);
-              assert.equal(event, 'close');
+            "we should see it close" : function (ign, socket, s) {
+              //
             }
           }
         }
       }
     }
   }
-//}).addBatch({
 }).export(module);

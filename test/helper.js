@@ -47,8 +47,8 @@ exports.createTlsSocket = function(options, cb) {
   // bind a connect, should just make a submission to tls in core
   // but meh~
   cleartext.connect = function (port, host, cb) {
-    socket.connect(port,host);
     self.cb = cb || self.cb;
+    socket.connect(port,host, self.cb);
   }
   //cleartext.connect = socket.connect;
 
