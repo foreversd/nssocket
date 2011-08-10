@@ -2,7 +2,7 @@
   NameSpace based Event based Buffered TCP/TLS Stream
 
 ## Purpose
-  Wrap a network socket with automatic buffering to simply network string communication into events
+  Wrap a network socket to change (text-based) network communication into events
 
 ## Major Dependency
 NsSocket Inherits from [eventemitter2](http://github.com/hij1nx/EventEmitter2.git)
@@ -19,9 +19,21 @@ git clone git@github.com:nodejitsu/nssocket.git
 ### new nssocket.NsSocket(socket, config)
  - `socket` network (tcp or tls) socket
  - `config` config options for this NsSocket
+ <pre>
+ // default values of config, if not specified
+ config = {
+   type : 'tcp',
+   delimiter : '::',
+   connected : false,
+   msgLength : 3,
+   maxListeners : 10,
+ }
+ </pre>
 
-### NsSocket.send(dataArray)
- - `dataArray` Array object that will be sent, should not include `delimiter`
+### NsSocket.send(nameArray, data)
+ - `nameArray` Array describing the namespace, e.g. `['some', 'namespace']`
+ - `data` string data, (use of `JSON.stringify` and `JSON.parse` is highly recommended)
+ *Do Not Use your delimiter in your nameArray or data*
 
 ### NsSocket.on(event, callback)
  - `event` name of the event
@@ -31,11 +43,13 @@ git clone git@github.com:nodejitsu/nssocket.git
 ### NsSocket.emit(event, [data], ...)
  - `event` event to emit
  *use at your own risk*
+ It is recommended that you do not emit events on the nssocket itself.
 
 ### NsSocket.connect(port, [host], [callback])
  - `port` destination port
  - `host` destination host, ip or hostname
  - `callback` callback on successful `connect`
+This is a very thin wrapper around `net` or `tls`
 
 ### NsSocket.end()
  - closes the current socket, emits `close` event, possibly also `error`
@@ -54,16 +68,16 @@ Emitted once the underlying socket has connected/started
 `function (data) {}`
 Emitted on raw data received on the underlying socket
 
-#### data :: * :: ...
-`function (dataArray) {}`
-Emitted once when a full message has been received on the socket,
-`DataArray` will be an `Array` object with items corresponding to the segments
-of the message
+#### data::some::names ...
+`function (nameArray, data) {}`
+Emitted once when a full message has been received on the socket, the output
+ corresponds to the input given to `NsSocket.send`
 
-e.g. `some::evented:blahbblahblah` would be caught with
+e.g.
 <pre>
-nsSocket.on('data::some::evented', function (datas) {
-  console.log(datas);
+nsSocket.on('data::some::evented', function (tags, data) {
+  console.log('Got a message in space: ', tags);
+  console.log('With the data of: ', data);
 }
 </pre>
 
@@ -98,8 +112,11 @@ var socket = new net.Socket({ type: 'tcp4'}),
 
 nsSocket.connect(80, '127.0.0.1', function onConnect() {
   // pass in an array
-  nsSocket.send(['hello', 'world', 'derp']);
-  console.dir('success!');  
+  nsSocket.send(
+    ['hello', 'world'], 
+    JSON.stringify({ foo:1, bar:2 })
+  );
+  console.dir('sent!');  
 });
 ```
 
