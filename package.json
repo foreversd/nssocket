@@ -2,20 +2,21 @@
   "name": "nssocket",
   "description": "Namespaced sockets with automatic buffering.",
   "version": "0.2.5-1",
-  "author": {"name":"hij1nx", "email":"hij1nx@me.com"},
+  "author": "Nodejitsu Inc <info@nodejitsu.com>",
   "maintainers": [
-    { "name": "hij1nx", "email": "hij1nx@nodejitsu.com" },
-    { "name": "jameson", "email": "jameson@nodejitsu.com" }
+    { "name": "Paolo Fragomeni", "email": "hij1nx@nodejitsu.com" },
+    { "name": "Jameson J Lee", "email": "jameson@nodejitsu.com" },
+    { "name": "Charlie Robbins", "email": "charlie@nodejitsu.com" }
   ],
   "repository": {
     "type": "git",
     "url": "http://github.com/nodejitsu/nssocket.git"
   },
   "dependencies": {
-    "eventemitter2" : "0.4.x"
+    "eventemitter2": "0.4.x"
   },
   "devDependencies": {
-    "vows" : "0.5.x"
+    "vows": "0.5.x"
   },
   "main": "./lib/nssocket",
   "engines": {

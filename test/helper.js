@@ -31,6 +31,7 @@ exports.createTlsSocket = function(options, cb) {
   //socket.connect(port, host);
 
   pair.on('secure', function() {
+    console.dir(arguments);
     var verifyError = pair.ssl.verifyError();
 
     if (verifyError) {
@@ -47,6 +48,7 @@ exports.createTlsSocket = function(options, cb) {
   // bind a connect, should just make a submission to tls in core
   // but meh~
   cleartext.connect = function (port, host, cb) {
+    console.dir(arguments);
     self.cb = cb || self.cb;
     socket.connect(port,host, self.cb);
   }

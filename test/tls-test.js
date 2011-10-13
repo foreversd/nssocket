@@ -11,68 +11,61 @@ var fs = require('fs'),
     spawn = require('child_process').spawn,
     vows = require('vows'),
     tls = require('tls'),
-    nssocket = require('../lib/nssocket').NsSocket,
+    NsSocket = require('../lib/nssocket').NsSocket,
     helper = require('./helper');
 
 var TLS_PORT = 50305,
     CA_NAME = 'snake-oil';
 
 var serverOpts = {
-    key:            fs.readFileSync(path.join(__dirname, 'CA', CA_NAME+'-key.pem')),
-    cert:           fs.readFileSync(path.join(__dirname, 'CA', CA_NAME+'-cert.pem')),
-    //ca:           fs.readFileSync(conf.tls.ca),
-    requestCert:    true,
-    rejectUnauthorized: false
+  key:            fs.readFileSync(path.join(__dirname, 'CA', CA_NAME+'-key.pem')),
+  cert:           fs.readFileSync(path.join(__dirname, 'CA', CA_NAME+'-cert.pem')),
+  //ca:           fs.readFileSync(conf.tls.ca),
+  requestCert:    true,
+  rejectUnauthorized: false
 };
+
 var tlsSocket = helper.createTlsSocket(serverOpts),
-    tlsServer = tls.createServer(serverOpts, console.log),
+    tlsServer = tls.createServer(serverOpts),
     tlsOpt;
 
 tlsOpt = {
-  type : 'tls',
-  msgLength : 3,
+  type:      'tls',
   delimiter: '::'
 };
 
-vows.describe('orchestra/nssocket').addBatch({
-  "When using the Orchestra's NsSocket with TLS": {
-    topic: function () {
-      var that = this;
-      return nssocket(tlsSocket, tlsOpt);
+tlsServer.listen(TLS_PORT);
+tlsServer.on('listening', function () {
+  console.dir('wtf fuuuu');
+})
+
+vows.describe('nssocket').addBatch({
+  "When using NsSocket with TLS": {
+    topic: new NsSocket(tlsSocket, tlsOpt),
+    "should create a wrapped socket": function (instance) {
+      assert.instanceOf(instance, NsSocket);
     },
-    "should create a wrapped socket": function (socket) {
-      assert.instanceOf(socket, nssocket);
+    "that has the proper configuration settings": function (instance) {
+      assert.equal(instance._type, tlsOpt.type);
+      assert.equal(instance._delimiter, tlsOpt.delimiter);
     },
-    "that has the proper configuration settings" : function (socket) {
-      assert.equal(socket._type, tlsOpt.type);
-      assert.equal(socket._delimiter, tlsOpt.delimiter);
-      assert.equal(socket._msgLen, tlsOpt.msgLength);
-    },
-    "If we were to connect the socket" : {
-      topic : function (socket) {
+    "the connect() method": {
+      topic: function (instance) {
         var that = this;
-        tlsServer.on('secureConnection', this.callback(null,null, socket, s));
-        // the above does not work
-        tlsServer.on('listening', function () {
-          socket.connect(TLS_PORT, '127.0.0.1', function () {
-            console.dir('hello');
-          });
-        });
-        tlsServer.listen(TLS_PORT);
+        console.dir('here first?');
+        tlsServer.on('secureConnection', this.callback.bind(null, null, instance));
+        instance.connect(TLS_PORT);
       },
-      "it should actually connect": function (ign, socket, s) {
-        assert.instanceOf(socket, nssocket);
-        assert.isTrue(!!s.authorized);
-      },
-      "without any errors" : function () {
-        assert.isTrue(true);
+      "it should actually connect": function (_, instance, wrapped) {
+        assert.instanceOf(instance, NsSocket);
+        assert.isTrue(!!wrapped.authorized);
       },
       "and if we were to send data on it": {
-        topic : function (socket, s) {
-          socket.on('data::here::is', this.callback.bind(null,null));
+        topic: function (socket, s) {
+          socket.on('data::here::is', this.callback.bind(null, null));
           s.write('here::is::something::');
         },
-        "we should see it show up with the delimiter" : function (ign, datas) {
+        "we should see it show up with the delimiter": function (_, datas) {
           assert.isArray(datas);
           assert.length(datas, 3);
           assert.isString(datas[0]);
@@ -80,19 +73,19 @@ vows.describe('orchestra/nssocket').addBatch({
           assert.isString(datas[2]);
           assert.equal(datas[1], 'is');
         },
-        "and if we were to set it to idle" : {
-          topic : function (_,_,socket,s) {
-            socket.once('idle', this.callback.bind(null,null,socket,s));
+        "and if we were to set it to idle": {
+          topic: function (_, _, socket, s) {
+            socket.once('idle', this.callback.bind(null, null, socket, s));
             socket.setIdle(100);
           },
-          "socket emits `idle` event" : function (ign, socket, s) {
+          "socket emits `idle` event": function (_, socket, s) {
           },
-          "and if we were to close the socket" : {
-            topic : function (socket,s) {
-              socket.on('close', this.callback.bind(null,null,socket,s));
+          "and if we were to close the socket": {
+            topic: function (socket, s) {
+              socket.on('close', this.callback.bind(null, null, socket, s));
               s.end();
             },
-            "we should see it close" : function (ign, socket, s) {
+            "we should see it close": function (_, socket, s) {
               //
             }
           }

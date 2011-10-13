@@ -86,9 +86,9 @@ nsSocket.on('data::some::evented', function (tags, data) {
 
 Emitted when there are any errors
 #### close 
-`function (had_err) {}`
+`function (hadErr) {}`
 
-Emitted when the underlying connection is closed, `had_err` will be true if
+Emitted when the underlying connection is closed, `hadErr` will be true if
 there were any errors.
 #### idle
 emitted when the socket has been idle,

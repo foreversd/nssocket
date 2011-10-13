@@ -11,11 +11,11 @@ var fs = require('fs'),
     spawn = require('child_process').spawn,
     vows = require('vows'),
     net = require('net'),
-    nssocket = require('../lib/nssocket').NsSocket;
+    NsSocket = require('../lib/nssocket').NsSocket;
 
 var TCP_PORT = 30103;
 
-var tcpSocket = new net.Socket({type:'tcp4'}),
+var tcpSocket = new net.Socket({ type:'tcp4' }),
     tcpServer = net.createServer(),
     tcpOpt;
 
@@ -29,75 +29,68 @@ tcpServer.listen(TCP_PORT);
 
 vows.describe('nssocket').addBatch({
   "When using NsSocket with TCP": {
-    topic: function () {
-      var that = this;
-      return nssocket(tcpSocket, tcpOpt);
+    topic: new NsSocket(tcpSocket, tcpOpt),
+    "should create a wrapped socket": function (instance) {
+      assert.instanceOf(instance, NsSocket);
     },
-    "should create a wrapped socket": function (socket) {
-      assert.instanceOf(socket, nssocket);
+    "should have the proper configuration settings": function (instance) {
+      assert.equal(instance._type, tcpOpt.type);
+      assert.equal(instance._delimiter, tcpOpt.delimiter);
     },
-    "that has the proper configuration settings" : function (socket) {
-      assert.equal(socket._type, tcpOpt.type);
-      assert.equal(socket._delimiter, tcpOpt.delimiter);
-      assert.equal(socket._msgLen, tcpOpt.msgLength);
-    },
-    "If we were to connect the socket" : {
-      topic : function (socket) {
+    "the connect() method": {
+      topic: function (instance) {
         var that = this;
-        tcpServer.on('connection', this.callback.bind(null,null,socket));
-        socket.connect(TCP_PORT);
+        tcpServer.on('connection', this.callback.bind(null, null, instance));
+        instance.connect(TCP_PORT);
       },
-      "it should actually connect": function (ign, socket, s) {
-        assert.instanceOf(socket, nssocket);
-        assert.instanceOf(s, net.Socket);
+      "should actually connect": function (_, instance, wrapped) {
+        assert.instanceOf(instance, NsSocket);
+        assert.instanceOf(wrapped, net.Socket);
       },
-      "without any errors" : function () {
-        assert.isTrue(true);
-      },
-      "and if we were to send data on it": {
-        topic : function (socket, s) {
-          socket.on('data.}here.}is', this.callback.bind(null, null));
-          s.write('here.}is.}something.}');
+      "the write() method": {
+        topic: function (instance, wrapped) {
+          instance.on('data.}here.}is', this.callback.bind(instance, null));
+          wrapped.write(JSON.stringify(['here', 'is', 'something.']));
         },
-        "we should see it show up with the delimiter" : function (ign, tags, data) {
-          assert.isArray(tags);
-          assert.length(tags, 2);
-          assert.isString(tags[0]);
-          assert.isString(tags[1]);
+        "should split the data": function (_, data) {
+          assert.isArray(this.event);
+          assert.length(this.event, 3);
+          assert.isString(this.event[0]);
+          assert.isString(this.event[1]);
+          assert.isString(this.event[2]);
           assert.isString(data);
-          assert.equal(tags[0], 'here');
-          assert.equal(tags[1], 'is');
-          assert.equal(data, 'something');
+          assert.equal(this.event[0], 'data');
+          assert.equal(this.event[1], 'here');
+          assert.equal(this.event[2], 'is');
+          assert.equal(data, 'something.');
         },
-        "and if we were to set it to idle" : {
-          topic : function (_,_,socket,s) {
-            socket.once('idle', this.callback.bind(null,null,socket,s));
-            socket.setIdle(100);
+        "once idle": {
+          topic: function (_, instance, wrapped) {
+            instance.once('idle', this.callback.bind(null, null, instance, wrapped));
+            instance.setIdle(100);
           },
-          "we should see the socket emit `idle` event" : function (ign, socket, s) {
-            assert.isNull(ign);
+          "it should emit `idle`": function (_, instance, wrapped) {
+            assert.isNull(_);
           },
-          "If we were to send a message on the socket" : {
-            topic : function (socket, s) {
-              s.on('data', this.callback.bind(null,null, socket, s));
-              socket.send(['hello','world'], '{some: "json", data:123}');
+          "the send() method": {
+            topic: function (instance, wrapped) {
+              wrapped.on('data', this.callback.bind(null, null, instance, wrapped));
+              instance.send(['hello','world'], { some: "json", data: 123 });
             },
-            "we should see it on the other end" : function (ign, socket, s, data) {
+            "we should see it on the other end": function (_, instance, wraped, data) {
               assert.isObject(data);
-              assert.isString(data.toString());
-              var arr = data.toString().split(tcpOpt.delimiter);
-              assert.length(arr, 4);
+              arr = JSON.parse(data.toString());
+              assert.length(arr, 3);
               assert.equal(arr[0], 'hello');
               assert.equal(arr[1], 'world');
-              assert.equal(arr[2], '{some: "json", data:123}');
-              assert.equal(arr[3], '');
+              assert.deepEqual(arr[2], { some: "json", data: 123 });
             },
-            "and if we were to close the socket" : {
-              topic : function (socket,s) {
-                socket.on('close', this.callback.bind(null,null,socket,s));
-                s.end();
+            "the end() method": {
+              topic: function (instance, wrapped) {
+                instance.on('close', this.callback.bind(null, null, instance, wrapped));
+                wrapped.end();
               },
-              "we should see it close without errors" : function (ign, socket, s, err) {
+              "should close without errors": function (_, _, _, err) {
                 assert.isUndefined(err);
               }
             }
@@ -106,5 +99,4 @@ vows.describe('nssocket').addBatch({
       }
     }
   }
-//}).addBatch({
 }).export(module);
