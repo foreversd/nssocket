@@ -1,27 +1,24 @@
 /*
  * nssocket-test.js : namespace socket unit test for TCP
  *
- *  (C) 2011, Nodejitsu Inc.
+ * (C) 2011, Nodejitsu Inc.
  *
  */
  
-var fs = require('fs'),
-    path = require('path'),
-    assert = require('assert'),
-    spawn = require('child_process').spawn,
-    vows = require('vows'),
+var assert = require('assert'),
+    fs = require('fs'),
     net = require('net'),
+    path = require('path'),
+    vows = require('vows'),
     NsSocket = require('../lib/nssocket').NsSocket;
 
 var TCP_PORT = 30103;
 
-var tcpSocket = new net.Socket({ type:'tcp4' }),
-    tcpServer = net.createServer(),
+var tcpServer = net.createServer(),
     tcpOpt;
 
 tcpOpt = {
-  type : 'tcp',
-  msgLength : 3,
+  type : 'tcp4',
   delimiter: '.}'
 };
 
@@ -29,30 +26,30 @@ tcpServer.listen(TCP_PORT);
 
 vows.describe('nssocket').addBatch({
   "When using NsSocket with TCP": {
-    topic: new NsSocket(tcpSocket, tcpOpt),
-    "should create a wrapped socket": function (instance) {
-      assert.instanceOf(instance, NsSocket);
+    topic: new NsSocket(tcpOpt),
+    "should create a wrapped socket": function (outbound) {
+      assert.instanceOf(outbound, NsSocket);
     },
-    "should have the proper configuration settings": function (instance) {
-      assert.equal(instance._type, tcpOpt.type);
-      assert.equal(instance._delimiter, tcpOpt.delimiter);
+    "should have the proper configuration settings": function (outbound) {
+      assert.equal(outbound._type, tcpOpt.type);
+      assert.equal(outbound._delimiter, tcpOpt.delimiter);
     },
     "the connect() method": {
-      topic: function (instance) {
+      topic: function (outbound) {
         var that = this;
-        tcpServer.on('connection', this.callback.bind(null, null, instance));
-        instance.connect(TCP_PORT);
+        tcpServer.on('connection', this.callback.bind(null, null, outbound));
+        outbound.connect(TCP_PORT);
       },
-      "should actually connect": function (_, instance, wrapped) {
-        assert.instanceOf(instance, NsSocket);
-        assert.instanceOf(wrapped, net.Socket);
+      "should actually connect": function (_, outbound, inbound) {
+        assert.instanceOf(outbound, NsSocket);
+        assert.instanceOf(inbound, net.Socket);
       },
-      "the write() method": {
-        topic: function (instance, wrapped) {
-          instance.on('data.}here.}is', this.callback.bind(instance, null));
-          wrapped.write(JSON.stringify(['here', 'is', 'something.']));
+      "the on() method": {
+        topic: function (outbound, inbound) {
+          outbound.on('data.}here.}is', this.callback.bind(outbound, null));
+          inbound.write(JSON.stringify(['here', 'is', 'something.']));
         },
-        "should split the data": function (_, data) {
+        "should handle namespaced events": function (_, data) {
           assert.isArray(this.event);
           assert.length(this.event, 3);
           assert.isString(this.event[0]);
@@ -65,19 +62,19 @@ vows.describe('nssocket').addBatch({
           assert.equal(data, 'something.');
         },
         "once idle": {
-          topic: function (_, instance, wrapped) {
-            instance.once('idle', this.callback.bind(null, null, instance, wrapped));
-            instance.setIdle(100);
+          topic: function (_, outbound, inbound) {
+            outbound.once('idle', this.callback.bind(null, null, outbound, inbound));
+            outbound.setIdle(100);
           },
-          "it should emit `idle`": function (_, instance, wrapped) {
+          "it should emit `idle`": function (_, outbound, inbound) {
             assert.isNull(_);
           },
           "the send() method": {
-            topic: function (instance, wrapped) {
-              wrapped.on('data', this.callback.bind(null, null, instance, wrapped));
-              instance.send(['hello','world'], { some: "json", data: 123 });
+            topic: function (outbound, inbound) {
+              inbound.on('data', this.callback.bind(null, null, outbound, inbound));
+              outbound.send(['hello','world'], { some: "json", data: 123 });
             },
-            "we should see it on the other end": function (_, instance, wraped, data) {
+            "we should see it on the other end": function (_, outbound, wraped, data) {
               assert.isObject(data);
               arr = JSON.parse(data.toString());
               assert.length(arr, 3);
@@ -86,9 +83,9 @@ vows.describe('nssocket').addBatch({
               assert.deepEqual(arr[2], { some: "json", data: 123 });
             },
             "the end() method": {
-              topic: function (instance, wrapped) {
-                instance.on('close', this.callback.bind(null, null, instance, wrapped));
-                wrapped.end();
+              topic: function (outbound, inbound) {
+                outbound.on('close', this.callback.bind(null, null, outbound, inbound));
+                inbound.end();
               },
               "should close without errors": function (_, _, _, err) {
                 assert.isUndefined(err);

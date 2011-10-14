@@ -1,6 +1,6 @@
 {
   "name": "nssocket",
-  "description": "Namespaced sockets with automatic buffering.",
+  "description": "An elegant way to define lightweight protocols on-top of TCP/TLS sockets in node.js",
   "version": "0.2.5-1",
   "author": "Nodejitsu Inc <info@nodejitsu.com>",
   "maintainers": [
@@ -23,7 +23,7 @@
     "node": "0.4.x"
   },
   "scripts": {
-    "test": "vows --spec test/tcp-test.js"
+    "test": "vows test/*-test.js --spec"
   }
 }
  

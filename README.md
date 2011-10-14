@@ -1,139 +1,112 @@
-# NsSocket
-  NameSpace based Event based Buffered TCP/TLS Stream
-
-## Purpose
-  Wrap a network socket to change (text-based) network communication into events
-
-## Major Dependency
-NsSocket Inherits from [eventemitter2](http://github.com/hij1nx/EventEmitter2.git)
+# nssocket
+An elegant way to define lightweight protocols on-top of TCP/TLS sockets in node.js 
 
 ## Installation
-<pre>
-npm install nssocket
-or
-git clone git@github.com:nodejitsu/nssocket.git
-</pre>
 
-## API
-
-### new nssocket.NsSocket(socket, config)
- - `socket` network (tcp or tls) socket
- - `config` config options for this NsSocket
- <pre>
- // default values of config, if not specified
- config = {
-   type : 'tcp',
-   delimiter : '::',
-   connected : false,
-   msgLength : 3,
-   maxListeners : 10,
- }
- </pre>
-
-### NsSocket.send(nameArray, data)
- - `nameArray` Array describing the namespace, e.g. `['some', 'namespace']`
- - `data` string data, (use of `JSON.stringify` and `JSON.parse` is highly recommended)
- *Do Not Use your delimiter in your nameArray or data*
-
-### NsSocket.on(event, callback)
- - `event` name of the event
- - `callback` - the callback function
- Register callbacks to events on this NsSocket
-
-### NsSocket.emit(event, [data], ...)
- - `event` event to emit
- *use at your own risk*
- It is recommended that you do not emit events on the nssocket itself.
-
-### NsSocket.connect(port, [host], [callback])
- - `port` destination port
- - `host` destination host, ip or hostname
- - `callback` callback on successful `connect`
-This is a very thin wrapper around `net` or `tls`
-
-### NsSocket.end()
- - closes the current socket, emits `close` event, possibly also `error`
-
-### NsSocket.destroy()
- - remove all listeners, destroys socket, clears buffer
- - should normally use `NsSocket.end()`
-
-### Events
-
-#### start
-`function () {}`
-
-Emitted once the underlying socket has connected/started
-#### data
-`function (data) {}`
-Emitted on raw data received on the underlying socket
-
-#### data::some::names ...
-`function (nameArray, data) {}`
-Emitted once when a full message has been received on the socket, the output
- corresponds to the input given to `NsSocket.send`
-
-e.g.
-<pre>
-nsSocket.on('data::some::evented', function (tags, data) {
-  console.log('Got a message in space: ', tags);
-  console.log('With the data of: ', data);
-}
-</pre>
-
-#### error
-`function (err) {}`
-
-Emitted when there are any errors
-#### close 
-`function (hadErr) {}`
-
-Emitted when the underlying connection is closed, `hadErr` will be true if
-there were any errors.
-#### idle
-emitted when the socket has been idle,
-only emitted if `setKeepAlive` or `setTimeout` has been bound
-
-## Usage Demo
-```javascript
-var net = require('net'),
-    nssocket = require('nssocket');
-
-// Config object
-var config = {
-  delimiter : '::' // default (recommended)
-  type : 'tcp' // default (tcp, tls)
-  msgLength : 3 // default (can be any length, technically even 1)
-};
-
-// socket gets wrapped
-var socket = new net.Socket({ type: 'tcp4'}),
-    nsSocket = nssocket.NsSocket(socket, config);
-
-nsSocket.connect(80, '127.0.0.1', function onConnect() {
-  // pass in an array
-  nsSocket.send(
-    ['hello', 'world'], 
-    JSON.stringify({ foo:1, bar:2 })
-  );
-  console.dir('sent!');  
-});
+### Installing npm (node package manager)
+```
+  curl http://npmjs.org/install.sh | sh
 ```
 
-## Coming soon
-- More & Better Tests
-- Make Demo in examples/
-- Add automatic socket creation (no more passing in sockets!)
-- Add UDP support
-- Add nssocket.Server functionality (returns a nssocket!)
-- Cake(?)
+### Installing nssocket
+```
+  [sudo] npm install nssocket
+```
 
-## Demo
-  TBA
+## Motivation
+Working within node.js it is very easy to write lightweight network protocols that communicate over TCP or TLS. The definition of such protocols often requires repeated (and tedious) parsing of individual TCP/TLS packets into a message header and some JSON body.
 
-### Maintainers
-[Paolo Fragmenti](https://github.com/hij1nx),
-[Jameson Lee](https://github.com/drjackal)
+With `nssocket` this tedious bookkeeping work is done automatically for you in two ways:
 
-### License
-MIT?
+1. Leverages wildcard and namespaced events from [EventEmitter2][0]
+2. Automatically serializes messages passed to `.send()` and deserializes messages from `data` events.
+3. Automatically wraps TCP connections with TLS using [a known workaround][1]
+
+## Messages
+Messages in `nssocket` are serialized JSON arrays of the following form:
+
+``` js
+  ["namespace": "to": "event", { "this": is, "the": payload }]
+```
+
+Although this is not as optimal as other message formats (pure binary, msgpack) most of your applications are probably IO-bound, and not by the computation time needed for serialization / deserialization. When working with `NsSocket` instances, all events are namespaced under `data` to avoid collision with other events.
+
+## Usage
+So get on with it right? _SHOW ME SOME CODE!_ 
+
+### Simple Example
+``` js
+  var nssocket = require('nssocket');
+
+  //
+  // Create an `nssocket` TCP server
+  //
+  var server = nssocket.createServer(function (socket) {
+    //
+    // Here `socket` will be an instance of `nssocket.NsSocket`.
+    //
+    socket.send(['you', 'there']);
+    socket.data(['iam', 'here'], function (data) {
+      //
+      // Good! The socket speaks our language 
+      // (i.e. simple 'you::there', 'iam::here' protocol)
+      //
+      // { iam: true, indeedHere: true }
+      //
+      console.dir(data);
+    })
+  });
+  
+  //
+  // Tell the server to listen on port `6785` and then connect to it
+  // using another NsSocket instance.
+  //
+  server.listen(6785);
+  
+  var outbound = new nssocket.NsSocket();
+  outbound.data(['you', 'there'], function () {
+    outbound.send(['iam', 'here'], { iam: true, indeedHere: true });
+  });
+  
+  outbound.connect(6785);
+```
+
+### Methods
+
+#### socket.send(event, data) 
+Writes `data` to the socket with the specified `event`, on the receiving end it will look like: `JSON.stringify([event, data])`.
+
+#### socket.on(event, callback)
+Equivalent to the underlying `.addListener()` or `.on()` function on the underlying socket except that it will permit all `EventEmitter2` wildcards and namespaces.
+
+#### socket.data(event, callback)
+Helper function for performing shorthand listeners namespaced under the `data` event. For example:
+
+``` js
+  //
+  // These two statements are equivalent
+  //
+  someSocket.on(['data', 'some', 'event'], function (data) { });
+  someSocket.data(['some', 'event'], function (data) { });
+```
+
+#### socket.end()
+ Closes the current socket, emits `close` event, possibly also `error`
+
+#### socket.destroy()
+ Remove all listeners, destroys socket, clears buffer. It is recommended that you use `socket.end()`.
+
+## Tests
+All tests are written with [vows][2] and should be run through [npm][3]:
+
+``` bash
+  $ npm test
+```
+
+#### Author: [Nodejitsu](http://www.nodejitsu.com)
+#### Contributors: [Paolo Fragomeni](http://github.com/hij1nx), [Charlie Robbins](http://github.com/indexzero), [Jameson Lee](http://github.com/drjackal)
+ 
+[0]: http://github.com/hij1nx/eventemitter2
+[1]: https://gist.github.com/848444
+[2]: http://vowsjs.org
+[3]: http://npmjs.org
