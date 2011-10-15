@@ -20,7 +20,8 @@ With `nssocket` this tedious bookkeeping work is done automatically for you in t
 
 1. Leverages wildcard and namespaced events from [EventEmitter2][0]
 2. Automatically serializes messages passed to `.send()` and deserializes messages from `data` events.
-3. Automatically wraps TCP connections with TLS using [a known workaround][1]
+3. Implements default reconnect logic for potentially faulty connections.
+4. Automatically wraps TCP connections with TLS using [a known workaround][1]
 
 ## Messages
 Messages in `nssocket` are serialized JSON arrays of the following form:
@@ -69,6 +70,41 @@ So get on with it right? _SHOW ME SOME CODE!_
   });
   
   outbound.connect(6785);
+```
+
+### Reconnect
+`nssocket` exposes simple options for enabling reconnection of the underlying socket. By default, these options are disabled. Lets look at a simple example:
+
+``` js
+  var net = require('net'),
+      nssocket = require('nssocket');
+  
+  net.createServer(function (socket) {
+    //
+    // Close the underlying socket after `1000ms`
+    //
+    setTimeout(function () {
+      socket.destroy();
+    }, 1000);
+  }).listen(8345);
+  
+  //
+  // Create an NsSocket instance with reconnect enabled
+  //
+  var socket = new nssocket.NsSocket({
+    reconnect: true,
+    type: 'tcp4',
+  });
+  
+  socket.on('start', function () {
+    //
+    // The socket will emit this event periodically
+    // as it attempts to reconnect
+    //
+    console.dir('start');
+  });
+  
+  socket.connect(8345);
 ```
 
 ### Methods
