@@ -32,7 +32,7 @@ tlsOpt = {
 
 tlsServer.listen(TLS_PORT);
 
-vows.describe('nssocket').addBatch({
+vows.describe('nssocket/tls').addBatch({
   "When using NsSocket with TLS": {
     topic: new NsSocket(tlsOpt),
     "should create a wrapped socket": function (outbound) {

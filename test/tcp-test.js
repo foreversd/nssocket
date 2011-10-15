@@ -24,7 +24,7 @@ tcpOpt = {
 
 tcpServer.listen(TCP_PORT);
 
-vows.describe('nssocket').addBatch({
+vows.describe('nssocket/tcp').addBatch({
   "When using NsSocket with TCP": {
     topic: new NsSocket(tcpOpt),
     "should create a wrapped socket": function (outbound) {
