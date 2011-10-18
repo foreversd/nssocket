@@ -47,7 +47,7 @@ vows.describe('nssocket/tcp').addBatch({
       "the on() method": {
         topic: function (outbound, inbound) {
           outbound.on('data.}here.}is', this.callback.bind(outbound, null));
-          inbound.write(JSON.stringify(['here', 'is', 'something.']));
+          inbound.write(JSON.stringify(['here', 'is', 'something.']) + '\n');
         },
         "should handle namespaced events": function (_, data) {
           assert.isArray(this.event);

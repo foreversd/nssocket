@@ -13,7 +13,8 @@
     "url": "http://github.com/nodejitsu/nssocket.git"
   },
   "dependencies": {
-    "eventemitter2": "0.4.x"
+    "eventemitter2": "0.4.x",
+    "lazy": "1.0.x"
   },
   "devDependencies": {
     "vows": "0.5.x"
