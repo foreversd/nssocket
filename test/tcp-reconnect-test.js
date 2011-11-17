@@ -62,7 +62,7 @@ vows.describe('nssocket/tcp/reconnect').addBatch({
             },
             "should handle namespaced events": function (_, data) {
               assert.isArray(this.event);
-              assert.length(this.event, 3);
+              assert.lengthOf(this.event, 3);
               assert.isString(this.event[0]);
               assert.isString(this.event[1]);
               assert.isString(this.event[2]);

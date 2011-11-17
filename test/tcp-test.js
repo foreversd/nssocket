@@ -51,7 +51,7 @@ vows.describe('nssocket/tcp').addBatch({
         },
         "should handle namespaced events": function (_, data) {
           assert.isArray(this.event);
-          assert.length(this.event, 3);
+          assert.lengthOf(this.event, 3);
           assert.isString(this.event[0]);
           assert.isString(this.event[1]);
           assert.isString(this.event[2]);
@@ -77,7 +77,7 @@ vows.describe('nssocket/tcp').addBatch({
             "we should see it on the other end": function (_, outbound, wraped, data) {
               assert.isObject(data);
               arr = JSON.parse(data.toString());
-              assert.length(arr, 3);
+              assert.lengthOf(arr, 3);
               assert.equal(arr[0], 'hello');
               assert.equal(arr[1], 'world');
               assert.deepEqual(arr[2], { some: "json", data: 123 });
