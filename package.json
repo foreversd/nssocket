@@ -17,7 +17,7 @@
     "lazy": "1.0.x"
   },
   "devDependencies": {
-    "vows": "0.5.x"
+    "vows": "0.6.x"
   },
   "main": "./lib/nssocket",
   "engines": {
