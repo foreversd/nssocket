@@ -13,17 +13,19 @@ var assert = require('assert'),
     vows = require('vows'),
     nssocket = require('../lib/nssocket');
 
-var PORT = 9564;
 
-vows.describe('nssocket/create-server').addBatch({
-  "When using NsSocket": {
+function getBatch() {
+  var args = arguments,
+      res  = {};
+
+  return {
     "the createServer() method": {
       topic: function () {
         var outbound = new nssocket.NsSocket(),
             server = nssocket.createServer(this.callback.bind(null, null, outbound));
             
-        server.listen(PORT);
-        outbound.connect(PORT);
+        server.listen.apply(server, args);
+        outbound.connect.apply(outbound, args);
       },
       "should create a full-duplex namespaced socket": {
         topic: function (outbound, inbound) {
@@ -41,8 +43,27 @@ vows.describe('nssocket/create-server').addBatch({
           assert.equal(this.event[1], 'here');
           assert.equal(this.event[2], 'is');
           assert.equal(data, 'something.');
-        },
+        }
       }
+    }
+  };
+}
+
+var PORT = 9564,
+    HOST = "127.0.0.1",
+    PIPE = path.join(__dirname, "fixtures", "nssocket.sock");
+
+vows.describe('nssocket/create-server').addBatch({
+  "When using NsSocket": {
+    "with `(PORT)` argument": getBatch(PORT),
+    "with `(PORT, HOST)` arguments": getBatch(PORT, HOST),
+    "with `(PIPE)` argument": getBatch(PIPE)
+  }
+}).addBatch({
+  "When tests are finished": {
+    "`PIPE` should be removed": function () {
+      fs.unlinkSync(PIPE);
     }
   }
 }).export(module);
+
