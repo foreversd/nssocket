@@ -57,13 +57,13 @@ vows.describe('nssocket/create-server').addBatch({
   "When using NsSocket": {
     "with `(PORT)` argument": getBatch(PORT),
     "with `(PORT, HOST)` arguments": getBatch(PORT, HOST),
-    //"with `(PIPE)` argument": getBatch(PIPE)
+    "with `(PIPE)` argument": getBatch(PIPE)
   }
-})/*.addBatch({
+}).addBatch({
   "When tests are finished": {
     "`PIPE` should be removed": function () {
       fs.unlinkSync(PIPE);
     }
   }
-})*/.export(module);
+}).export(module);
 
