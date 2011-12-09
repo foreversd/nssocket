@@ -15,12 +15,8 @@ var assert = require('assert'),
 
 
 function getBatch() {
-  var args = [],
+  var args = Array.prototype.slice.call(arguments),
       res = {};
-
-  for (var i = 0; i < arguments.length; i++) {
-    args.push(arguments[i]);
-  }
 
   return {
     "the createServer() method": {
