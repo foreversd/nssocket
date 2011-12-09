@@ -15,8 +15,12 @@ var assert = require('assert'),
 
 
 function getBatch() {
-  var args = arguments,
-      res  = {};
+  var args = [],
+      res = {};
+
+  for (var i = 0; i < arguments.length; i++) {
+    args.push(arguments[i]);
+  }
 
   return {
     "the createServer() method": {
@@ -24,8 +28,9 @@ function getBatch() {
         var outbound = new nssocket.NsSocket(),
             server = nssocket.createServer(this.callback.bind(null, null, outbound));
             
-        server.listen.apply(server, args);
-        outbound.connect.apply(outbound, args);
+        server.listen.apply(server, args.concat(function () {
+          outbound.connect.apply(outbound, args);
+        }));
       },
       "should create a full-duplex namespaced socket": {
         topic: function (outbound, inbound) {
@@ -56,7 +61,7 @@ var PORT = 9564,
 vows.describe('nssocket/create-server').addBatch({
   "When using NsSocket": {
     "with `(PORT)` argument": getBatch(PORT),
-    "with `(PORT, HOST)` arguments": getBatch(PORT, HOST),
+    "with `(PORT, HOST)` arguments": getBatch(PORT + 1, HOST),
     "with `(PIPE)` argument": getBatch(PIPE)
   }
 }).addBatch({
