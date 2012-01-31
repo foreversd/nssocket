@@ -27,7 +27,7 @@ With `nssocket` this tedious bookkeeping work is done automatically for you in t
 Messages in `nssocket` are serialized JSON arrays of the following form:
 
 ``` js
-  ["namespace": "to": "event", { "this": is, "the": payload }]
+  ["namespace", "to", "event", { "this": "is", "the": "payload" }]
 ```
 
 Although this is not as optimal as other message formats (pure binary, msgpack) most of your applications are probably IO-bound, and not by the computation time needed for serialization / deserialization. When working with `NsSocket` instances, all events are namespaced under `data` to avoid collision with other events.
