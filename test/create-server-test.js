@@ -52,12 +52,14 @@ function getBatch() {
 
 var PORT = 9564,
     HOST = "127.0.0.1",
-    PIPE = path.join(__dirname, "fixtures", "nssocket.sock");
+    PIPE = path.join(__dirname, "fixtures", "nssocket.sock"),
+    HOSTNAME = "localhost";
 
 vows.describe('nssocket/create-server').addBatch({
   "When using NsSocket": {
     "with `(PORT)` argument": getBatch(PORT),
     "with `(PORT, HOST)` arguments": getBatch(PORT + 1, HOST),
+    "with `(PORT, HOSTNAME)` argument": getBatch(PORT + 2, HOSTNAME),
     "with `(PIPE)` argument": getBatch(PIPE)
   }
 }).addBatch({
