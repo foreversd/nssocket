@@ -1,4 +1,3 @@
-
 # Synposis
 An elegant way to define lightweight protocols on-top of TCP/TLS sockets in node.js 
 
@@ -31,7 +30,7 @@ Messages in `nssocket` are serialized JSON arrays of the following form:
 
 Although this is not as optimal as other message formats (pure binary, msgpack) most of your applications are probably IO-bound, and not by the computation time needed for serialization / deserialization. When working with `NsSocket` instances, all events are namespaced under `data` to avoid collision with other events.
 
-## Example
+## Simple Example
 ``` js
   var nssocket = require('nssocket');
 
@@ -68,7 +67,7 @@ Although this is not as optimal as other message formats (pure binary, msgpack) 
   outbound.connect(6785);
 ```
 
-## Reconnect
+## Reconnect Example
 `nssocket` exposes simple options for enabling reconnection of the underlying socket. By default, these options are disabled. Lets look at a simple example:
 
 ``` js
