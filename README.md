@@ -1,20 +1,17 @@
-# nssocket
+
+# Synposis
 An elegant way to define lightweight protocols on-top of TCP/TLS sockets in node.js 
-
-## Installation
-
-### Installing npm (node package manager)
-```
-  curl http://npmjs.org/install.sh | sh
-```
-
-### Installing nssocket
-```
-  [sudo] npm install nssocket
-```
 
 ## Motivation
 Working within node.js it is very easy to write lightweight network protocols that communicate over TCP or TLS. The definition of such protocols often requires repeated (and tedious) parsing of individual TCP/TLS packets into a message header and some JSON body.
+
+## Build Status
+[nssocket](http://travis-ci.org/#!/nodejitsu/nssocket) [![Build Status](https://secure.travis-ci.org/nodejitsu/nssocket.png)](http://travis-ci.org/nodejitsu/nssocket)
+
+## Installation
+```
+  [sudo] npm install nssocket
+```
 
 With `nssocket` this tedious bookkeeping work is done automatically for you in two ways:
 
