@@ -1,16 +1,19 @@
+
 # Synposis
 An elegant way to define lightweight protocols on-top of TCP/TLS sockets in node.js 
 
-## Motivation
+# Motivation
 Working within node.js it is very easy to write lightweight network protocols that communicate over TCP or TLS. The definition of such protocols often requires repeated (and tedious) parsing of individual TCP/TLS packets into a message header and some JSON body.
 
-## Build Status
+# Build Status
 [![Build Status](https://secure.travis-ci.org/nodejitsu/nssocket.png)](http://travis-ci.org/nodejitsu/nssocket)
 
-## Installation
+# Installation
 ```
   [sudo] npm install nssocket
 ```
+
+# How it works
 
 With `nssocket` this tedious bookkeeping work is done automatically for you in two ways:
 
@@ -28,10 +31,7 @@ Messages in `nssocket` are serialized JSON arrays of the following form:
 
 Although this is not as optimal as other message formats (pure binary, msgpack) most of your applications are probably IO-bound, and not by the computation time needed for serialization / deserialization. When working with `NsSocket` instances, all events are namespaced under `data` to avoid collision with other events.
 
-## Usage
-So get on with it right? _SHOW ME SOME CODE!_ 
-
-### Simple Example
+## Example
 ``` js
   var nssocket = require('nssocket');
 
@@ -68,7 +68,7 @@ So get on with it right? _SHOW ME SOME CODE!_
   outbound.connect(6785);
 ```
 
-### Reconnect
+## Reconnect
 `nssocket` exposes simple options for enabling reconnection of the underlying socket. By default, these options are disabled. Lets look at a simple example:
 
 ``` js
@@ -103,15 +103,15 @@ So get on with it right? _SHOW ME SOME CODE!_
   socket.connect(8345);
 ```
 
-### Methods
+# API
 
-#### socket.send(event, data) 
+### socket.send(event, data) 
 Writes `data` to the socket with the specified `event`, on the receiving end it will look like: `JSON.stringify([event, data])`.
 
-#### socket.on(event, callback)
+### socket.on(event, callback)
 Equivalent to the underlying `.addListener()` or `.on()` function on the underlying socket except that it will permit all `EventEmitter2` wildcards and namespaces.
 
-#### socket.data(event, callback)
+### socket.data(event, callback)
 Helper function for performing shorthand listeners namespaced under the `data` event. For example:
 
 ``` js
@@ -122,10 +122,10 @@ Helper function for performing shorthand listeners namespaced under the `data` e
   someSocket.data(['some', 'event'], function (data) { });
 ```
 
-#### socket.end()
+### socket.end()
  Closes the current socket, emits `close` event, possibly also `error`
 
-#### socket.destroy()
+### socket.destroy()
  Remove all listeners, destroys socket, clears buffer. It is recommended that you use `socket.end()`.
 
 ## Tests
@@ -135,8 +135,8 @@ All tests are written with [vows][2] and should be run through [npm][3]:
   $ npm test
 ```
 
-#### Author: [Nodejitsu](http://www.nodejitsu.com)
-#### Contributors: [Paolo Fragomeni](http://github.com/hij1nx), [Charlie Robbins](http://github.com/indexzero), [Jameson Lee](http://github.com/drjackal)
+### Author: [Nodejitsu](http://www.nodejitsu.com)
+### Contributors: [Paolo Fragomeni](http://github.com/hij1nx), [Charlie Robbins](http://github.com/indexzero), [Jameson Lee](http://github.com/drjackal)
  
 [0]: http://github.com/hij1nx/eventemitter2
 [1]: https://gist.github.com/848444
