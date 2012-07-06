@@ -58,7 +58,7 @@ vows.describe('nssocket/tcp/reconnect').addBatch({
           "the on() method": {
             topic: function (outbound, inbound) {
               outbound.on('data.}here.}is', this.callback.bind(outbound, null));
-              inbound.write(JSON.stringify(['here', 'is', 'something.']) + '\n');
+              inbound.write(Buffer('0000000d0000000c005b2268657265222c226973225d22736f6d657468696e672e22', 'hex'));
             },
             "should handle namespaced events": function (_, data) {
               assert.isArray(this.event);
