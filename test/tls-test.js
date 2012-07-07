@@ -57,7 +57,7 @@ vows.describe('nssocket/tls').addBatch({
       "the on() method": {
         topic: function (outbound, inbound) {
           outbound.on(['data', 'here', 'is'], this.callback.bind(outbound, null));
-          inbound.write(JSON.stringify(['here', 'is', 'something']) + '\n');
+          inbound.write(Buffer('0000000d0000000b005b2268657265222c226973225d22736f6d657468696e6722', 'hex'));
         },
         "should handle namespaced events": function (_, data) {
           assert.isString(data);
@@ -79,15 +79,16 @@ vows.describe('nssocket/tls').addBatch({
           "the send() method": {
             topic: function (outbound, inbound) {
               inbound.on('data', this.callback.bind(null, null, outbound, inbound));
-              outbound.send(['hello','world'], { some: "json", data: 123 });
+              outbound.send(['hello','world'], Buffer('foo::bar'));
             },
             "we should see it on the other end": function (_, outbound, inbound, data) {
               assert.isObject(data);
-              arr = JSON.parse(data.toString());
-              assert.lengthOf(arr, 3);
-              assert.equal(arr[0], 'hello');
-              assert.equal(arr[1], 'world');
-              assert.deepEqual(arr[2], { some: "json", data: 123 });
+              event = JSON.parse(data.slice(9, 26).toString());
+              data = data.slice(26).toString();
+              assert.lengthOf(event, 2);
+              assert.equal(event[0], 'hello');
+              assert.equal(event[1], 'world');
+              assert.deepEqual(data, 'foo::bar');
             },
             "the end() method": {
               topic: function (outbound, inbound) {
