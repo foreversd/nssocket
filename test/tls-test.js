@@ -4,7 +4,7 @@
  * (C) 2011, Nodejitsu Inc.
  *
  */
- 
+
 var assert = require('assert'),
     fs = require('fs'),
     net = require('net'),
@@ -66,7 +66,7 @@ vows.describe('nssocket/tls').addBatch({
           assert.equal(this.event[0], 'data');
           assert.equal(this.event[1], 'here');
           assert.equal(this.event[2], 'is');
-          assert.equal(data, 'something');
+          assert.equal(data, 'something.');
         },
         "once idle": {
           topic: function (_, outbound, inbound) {
