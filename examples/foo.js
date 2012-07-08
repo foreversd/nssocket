@@ -1,10 +1,8 @@
-var nssocket = require('../lib/nssocket');
-var outbound = new nssocket.NsSocket();
- 
-outbound.data('Broadcasting', function (data) {
+var nssocket = require('../')
+var outbound = nssocket()
+
+outbound.on('data::broadcasting', function (data) {
   console.log(data)
-});
-
-outbound.connect(4949);
-
-outbound.send('Connecting', { "random": Math.random() });
+}).connect(4949, function () {
+  outbound.send('connecting', { 'random' : Math.random() })
+})

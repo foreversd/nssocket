@@ -14,13 +14,13 @@ var net = require('net'),
 
 var PORT = 9568
 var HOST = '127.0.0.1'
-var PIPE = path.join(__dirname, 'fixtures', 'nssocket.sock')
 var HOSTNAME = 'localhost'
+var PIPE = path.join(__dirname, 'fixtures', 'nssocket.sock')
 
 describe('nssocket/create-server', function () {
-  describe('#createServer()', function () {
+  describe('#listen()', function () {
     before(function() {
-      try { fs.unlinkSync(PIPE) }
+      try { fs.unlinkSync(FD) }
       catch (err) {}
     })
     afterEach(function (done) {
@@ -40,7 +40,6 @@ function testWith() {
 
   return function (done) {
     var self = this
-    self.outbound = new nssocket.NsSocket()
     self.server = nssocket.createServer(function (inbound) {
       self.inbound = inbound
       self.outbound.on(['data', 'here', 'is'], function (data) {
@@ -51,6 +50,7 @@ function testWith() {
       self.inbound.send(['here', 'is'], 'something.');
     })
     self.server.listen.apply(self.server, args.concat(function () {
+      self.outbound = nssocket()
       self.outbound.connect.apply(self.outbound, args)
     }))
   }

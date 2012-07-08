@@ -1,30 +1,30 @@
-var net = require('net'),
+var tls = require('tls'),
     fs = require ('fs'),
     expect = require('chai').expect,
-    NsSocket = require('../lib/nssocket').NsSocket
+    nssocket = require('../')
 
-var trollface = fs.readFileSync('test-mocha/fixtures/trollface.jpg')
+var trollface = fs.readFileSync('test/fixtures/trollface.jpg')
 var TCP_PORT = 5467
 
-describe('nssocket/tcp/buffer', function () {
+describe('nssocket/tls/buffer', function () {
   before(function (done) {
     var self = this
-    this.outbound = new NsSocket({
-      type : 'tcp4',
-      delimiter: '/'
-    })
-    this.server = net.createServer(function (inbound) {
+    this.server = tls.createServer({
+      key:  fs.readFileSync('test/fixtures/ryans-key.pem'),
+      cert: fs.readFileSync('test/fixtures/ryans-cert.pem'),
+      ca:   fs.readFileSync('test/fixtures/ryans-csr.pem')
+    }, function (inbound) {
       self.inbound = inbound
       done()
     })
-    this.server.listen(TCP_PORT, function (stream) {
-      self.outbound.connect(TCP_PORT)
+    this.server.listen(TCP_PORT, function () {
+      self.outbound = nssocket({ type : 'tls', delimiter: '/' }).connect(TCP_PORT)
     })
   })
   after(function () {
     this.server.close()
-    this.outbound.end()
     this.inbound.end()
+    this.outbound.end()
   })
   describe('#send()', function () {
     it('should correctly receive multi messages chunks / json', testMulti(5, { foo: 'bar' }))
@@ -36,20 +36,19 @@ describe('nssocket/tcp/buffer', function () {
 function testMulti(n, data) {
   return function (done) {
     var self = this
-    var message = self.outbound.createMessage('test::multi', data)
+    var message = this.outbound.createMessage('test/multi', data)
     var buffer = Buffer.concat(arrayOf(message, n), message.length * n)
 
     function onMessage(data) {
       n --
       expect(data).to.be.eql(data)
       if (!n) {
-        self.outbound.undata('binary', onMessage)
+        self.outbound.off('data/test/multi', onMessage)
         done()
       }
     }
-
-    self.outbound.data('test::multi', onMessage)
-    self.inbound.write(buffer)
+    this.outbound.on('data/test/multi', onMessage)
+    this.inbound.write(buffer)
   }
 }
 

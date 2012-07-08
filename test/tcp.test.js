@@ -21,16 +21,19 @@ var TCP_OPTIONS = {
 }
 
 describe('nssocket/tcp', function () {
+  after(function (done) {
+    this.server.close(done)
+  })
   describe('#()', function () {
     before(function () {
-      this.outbound = new nssocket.NsSocket(TCP_OPTIONS)
+      this.outbound = nssocket(TCP_OPTIONS)
     })
     it('should create a wrapped socket', function () {
-      assert.instanceOf(this.outbound, nssocket.NsSocket)
+      assert.instanceOf(this.outbound, nssocket)
     })
     it('should have the proper configuration settings', function () {
-      assert.equal(this.outbound._type, TCP_OPTIONS.type)
-      assert.equal(this.outbound._delimiter, TCP_OPTIONS.delimiter)
+      assert.equal(this.outbound.type, TCP_OPTIONS.type)
+      assert.equal(this.outbound.delimiter, TCP_OPTIONS.delimiter)
     })
   })
   describe('#connect()', function () {
@@ -84,7 +87,7 @@ describe('nssocket/tcp', function () {
         assert.equal(data, 'something.')
         done()
       })
-      this.outbound.socket.write(rawMessage)
+      this.outbound.write(rawMessage)
     })
   })
   describe('#send()', function () {

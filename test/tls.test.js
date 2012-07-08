@@ -24,14 +24,14 @@ var TLS_OPTIONS = {
 describe('nssocket/tls', function () {
   describe('#()', function () {
     before(function () {
-      this.outbound = new nssocket.NsSocket({ type: 'tls', delimiter: '.}' })
+      this.outbound = nssocket({ type: 'tls', delimiter: '.}' })
     })
     it('should create a wrapped socket', function () {
-      assert.instanceOf(this.outbound, nssocket.NsSocket)
+      assert.instanceOf(this.outbound, nssocket)
     })
     it('should have the proper configuration settings', function () {
-      assert.equal(this.outbound._type, TLS_OPTIONS.type)
-      assert.equal(this.outbound._delimiter, TLS_OPTIONS.delimiter)
+      assert.equal(this.outbound.type, TLS_OPTIONS.type)
+      assert.equal(this.outbound.delimiter, TLS_OPTIONS.delimiter)
     })
   })
   describe('#connect()', function () {
@@ -39,7 +39,6 @@ describe('nssocket/tls', function () {
       var self = this
       self.server = nssocket.createServer(TLS_OPTIONS, function (inbound) {
         self.inbound = inbound
-        // assert.ok(inbound.authorized, 'Certificate is not authorized (' + inbound.authorizationError + ')')
         done()
       }).listen(TLS_PORT, function () {
         self.outbound.connect(TLS_PORT)
@@ -81,12 +80,12 @@ describe('nssocket/tls', function () {
   describe('#on()', function () {
     it('should handle namespaced events', function (done) {
       var rawMessage = this.outbound.createMessage(['here', 'is'], 'something.')
-      this.outbound.once('data.}here.}is', function (data) {
+      this.inbound.once('data.}here.}is', function (data) {
         assert.deepEqual(this.event, ['data', 'here', 'is'])
         assert.equal(data, 'something.')
         done()
       })
-      this.outbound.send(['here','is'], 'something.')
+      this.outbound.write(rawMessage)
     })
   })
   describe('#send()', function () {
