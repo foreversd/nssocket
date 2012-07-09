@@ -1,11 +1,11 @@
-	var nssocket = require('../')
+	var nss = require('../')
 
 	//
-	// Create an `nssocket` TCP server
+	// Create an `nss` TCP server
 	//
-	var server = nssocket.createServer(function (socket) {
+	var server = nss.createServer(function (socket) {
 	  //
-	  // Here `socket` will be an instance of `nssocket.NsSocket`.
+	  // Here `socket` will be an instance of `NsSocket`.
 	  //
 
 	  socket.send(['drink', 'rum'])
@@ -28,7 +28,7 @@
 	//
 	server.listen(6785)
 
-	nssocket().ondata(['drink', '*'], function () {
+	nss().ondata(['drink', '*'], function () {
 	  console.log('I can mix a', this.event[2], 'drink')
 	  //outbound.send(['iam', 'here'], { iam: true, indeedHere: true })
 	}).connect(6785)

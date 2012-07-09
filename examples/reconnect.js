@@ -1,5 +1,5 @@
 var net = require('net'),
-    nssocket = require('../')
+    nss = require('../')
 
 net.createServer(function (socket) {
   setTimeout(function () {
@@ -7,6 +7,6 @@ net.createServer(function (socket) {
   }, 1000)
 }).listen(8345)
 
-nssocket({ reconnect: true }).on('start', function () {
+nss.createClient({ reconnect: true }).on('start', function () {
   console.log('start')
 }).connect(8345)

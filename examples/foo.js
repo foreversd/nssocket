@@ -1,5 +1,5 @@
-var nssocket = require('../')
-var outbound = nssocket()
+var nss = require('../')
+var outbound = nss()
 
 outbound.on('data::broadcasting', function (data) {
   console.log(data)

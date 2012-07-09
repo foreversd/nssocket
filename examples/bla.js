@@ -1,7 +1,7 @@
-var nssocket = require('../')
+var nss = require('../')
 
 var sockets = []
-nssocket.createServer(function (socket) {
+nss.createServer(function (socket) {
 	sockets.push(socket)
   socket.ondata('connecting', function (data) {
     console.log('There are now', sockets.length)
