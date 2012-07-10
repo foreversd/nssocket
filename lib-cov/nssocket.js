@@ -4,526 +4,532 @@ if (! _$jscoverage['nssocket.js']) {
   _$jscoverage['nssocket.js'] = [];
   _$jscoverage['nssocket.js'][1] = 0;
   _$jscoverage['nssocket.js'][8] = 0;
-  _$jscoverage['nssocket.js'][9] = 0;
   _$jscoverage['nssocket.js'][10] = 0;
-  _$jscoverage['nssocket.js'][11] = 0;
   _$jscoverage['nssocket.js'][12] = 0;
+  _$jscoverage['nssocket.js'][13] = 0;
+  _$jscoverage['nssocket.js'][14] = 0;
   _$jscoverage['nssocket.js'][15] = 0;
-  _$jscoverage['nssocket.js'][16] = 0;
   _$jscoverage['nssocket.js'][18] = 0;
   _$jscoverage['nssocket.js'][19] = 0;
-  _$jscoverage['nssocket.js'][20] = 0;
+  _$jscoverage['nssocket.js'][21] = 0;
   _$jscoverage['nssocket.js'][23] = 0;
-  _$jscoverage['nssocket.js'][29] = 0;
-  _$jscoverage['nssocket.js'][30] = 0;
-  _$jscoverage['nssocket.js'][31] = 0;
+  _$jscoverage['nssocket.js'][24] = 0;
+  _$jscoverage['nssocket.js'][27] = 0;
   _$jscoverage['nssocket.js'][33] = 0;
   _$jscoverage['nssocket.js'][34] = 0;
   _$jscoverage['nssocket.js'][35] = 0;
+  _$jscoverage['nssocket.js'][37] = 0;
   _$jscoverage['nssocket.js'][38] = 0;
   _$jscoverage['nssocket.js'][39] = 0;
   _$jscoverage['nssocket.js'][42] = 0;
   _$jscoverage['nssocket.js'][43] = 0;
-  _$jscoverage['nssocket.js'][44] = 0;
-  _$jscoverage['nssocket.js'][51] = 0;
-  _$jscoverage['nssocket.js'][57] = 0;
-  _$jscoverage['nssocket.js'][58] = 0;
-  _$jscoverage['nssocket.js'][59] = 0;
-  _$jscoverage['nssocket.js'][60] = 0;
+  _$jscoverage['nssocket.js'][46] = 0;
+  _$jscoverage['nssocket.js'][47] = 0;
+  _$jscoverage['nssocket.js'][48] = 0;
+  _$jscoverage['nssocket.js'][55] = 0;
   _$jscoverage['nssocket.js'][61] = 0;
+  _$jscoverage['nssocket.js'][62] = 0;
+  _$jscoverage['nssocket.js'][63] = 0;
+  _$jscoverage['nssocket.js'][64] = 0;
   _$jscoverage['nssocket.js'][65] = 0;
-  _$jscoverage['nssocket.js'][67] = 0;
-  _$jscoverage['nssocket.js'][68] = 0;
   _$jscoverage['nssocket.js'][69] = 0;
   _$jscoverage['nssocket.js'][71] = 0;
   _$jscoverage['nssocket.js'][72] = 0;
-  _$jscoverage['nssocket.js'][73] = 0;
   _$jscoverage['nssocket.js'][74] = 0;
-  _$jscoverage['nssocket.js'][76] = 0;
+  _$jscoverage['nssocket.js'][75] = 0;
+  _$jscoverage['nssocket.js'][77] = 0;
   _$jscoverage['nssocket.js'][78] = 0;
+  _$jscoverage['nssocket.js'][79] = 0;
   _$jscoverage['nssocket.js'][80] = 0;
-  _$jscoverage['nssocket.js'][83] = 0;
+  _$jscoverage['nssocket.js'][82] = 0;
   _$jscoverage['nssocket.js'][84] = 0;
-  _$jscoverage['nssocket.js'][87] = 0;
+  _$jscoverage['nssocket.js'][86] = 0;
   _$jscoverage['nssocket.js'][89] = 0;
-  _$jscoverage['nssocket.js'][90] = 0;
-  _$jscoverage['nssocket.js'][93] = 0;
+  _$jscoverage['nssocket.js'][91] = 0;
+  _$jscoverage['nssocket.js'][92] = 0;
   _$jscoverage['nssocket.js'][94] = 0;
   _$jscoverage['nssocket.js'][95] = 0;
-  _$jscoverage['nssocket.js'][96] = 0;
-  _$jscoverage['nssocket.js'][99] = 0;
-  _$jscoverage['nssocket.js'][102] = 0;
-  _$jscoverage['nssocket.js'][103] = 0;
+  _$jscoverage['nssocket.js'][98] = 0;
+  _$jscoverage['nssocket.js'][100] = 0;
+  _$jscoverage['nssocket.js'][101] = 0;
+  _$jscoverage['nssocket.js'][104] = 0;
   _$jscoverage['nssocket.js'][105] = 0;
   _$jscoverage['nssocket.js'][106] = 0;
-  _$jscoverage['nssocket.js'][109] = 0;
+  _$jscoverage['nssocket.js'][107] = 0;
+  _$jscoverage['nssocket.js'][110] = 0;
   _$jscoverage['nssocket.js'][111] = 0;
-  _$jscoverage['nssocket.js'][112] = 0;
   _$jscoverage['nssocket.js'][114] = 0;
   _$jscoverage['nssocket.js'][115] = 0;
+  _$jscoverage['nssocket.js'][117] = 0;
   _$jscoverage['nssocket.js'][118] = 0;
-  _$jscoverage['nssocket.js'][119] = 0;
   _$jscoverage['nssocket.js'][121] = 0;
+  _$jscoverage['nssocket.js'][123] = 0;
   _$jscoverage['nssocket.js'][124] = 0;
-  _$jscoverage['nssocket.js'][125] = 0;
   _$jscoverage['nssocket.js'][126] = 0;
-  _$jscoverage['nssocket.js'][128] = 0;
+  _$jscoverage['nssocket.js'][127] = 0;
+  _$jscoverage['nssocket.js'][130] = 0;
   _$jscoverage['nssocket.js'][131] = 0;
-  _$jscoverage['nssocket.js'][132] = 0;
-  _$jscoverage['nssocket.js'][135] = 0;
+  _$jscoverage['nssocket.js'][133] = 0;
   _$jscoverage['nssocket.js'][136] = 0;
   _$jscoverage['nssocket.js'][137] = 0;
-  _$jscoverage['nssocket.js'][139] = 0;
-  _$jscoverage['nssocket.js'][142] = 0;
+  _$jscoverage['nssocket.js'][138] = 0;
+  _$jscoverage['nssocket.js'][140] = 0;
   _$jscoverage['nssocket.js'][143] = 0;
   _$jscoverage['nssocket.js'][144] = 0;
   _$jscoverage['nssocket.js'][147] = 0;
   _$jscoverage['nssocket.js'][148] = 0;
-  _$jscoverage['nssocket.js'][150] = 0;
+  _$jscoverage['nssocket.js'][149] = 0;
   _$jscoverage['nssocket.js'][151] = 0;
-  _$jscoverage['nssocket.js'][152] = 0;
+  _$jscoverage['nssocket.js'][154] = 0;
   _$jscoverage['nssocket.js'][155] = 0;
-  _$jscoverage['nssocket.js'][158] = 0;
+  _$jscoverage['nssocket.js'][156] = 0;
   _$jscoverage['nssocket.js'][159] = 0;
   _$jscoverage['nssocket.js'][160] = 0;
   _$jscoverage['nssocket.js'][162] = 0;
   _$jscoverage['nssocket.js'][163] = 0;
-  _$jscoverage['nssocket.js'][165] = 0;
-  _$jscoverage['nssocket.js'][166] = 0;
-  _$jscoverage['nssocket.js'][169] = 0;
+  _$jscoverage['nssocket.js'][164] = 0;
+  _$jscoverage['nssocket.js'][167] = 0;
+  _$jscoverage['nssocket.js'][170] = 0;
+  _$jscoverage['nssocket.js'][171] = 0;
   _$jscoverage['nssocket.js'][172] = 0;
-  _$jscoverage['nssocket.js'][173] = 0;
+  _$jscoverage['nssocket.js'][174] = 0;
   _$jscoverage['nssocket.js'][175] = 0;
-  _$jscoverage['nssocket.js'][176] = 0;
   _$jscoverage['nssocket.js'][177] = 0;
-  _$jscoverage['nssocket.js'][180] = 0;
+  _$jscoverage['nssocket.js'][178] = 0;
   _$jscoverage['nssocket.js'][181] = 0;
-  _$jscoverage['nssocket.js'][183] = 0;
   _$jscoverage['nssocket.js'][184] = 0;
   _$jscoverage['nssocket.js'][185] = 0;
+  _$jscoverage['nssocket.js'][187] = 0;
   _$jscoverage['nssocket.js'][188] = 0;
+  _$jscoverage['nssocket.js'][190] = 0;
   _$jscoverage['nssocket.js'][191] = 0;
-  _$jscoverage['nssocket.js'][192] = 0;
   _$jscoverage['nssocket.js'][194] = 0;
-  _$jscoverage['nssocket.js'][195] = 0;
   _$jscoverage['nssocket.js'][197] = 0;
+  _$jscoverage['nssocket.js'][198] = 0;
   _$jscoverage['nssocket.js'][200] = 0;
   _$jscoverage['nssocket.js'][201] = 0;
-  _$jscoverage['nssocket.js'][204] = 0;
-  _$jscoverage['nssocket.js'][206] = 0;
-  _$jscoverage['nssocket.js'][207] = 0;
-  _$jscoverage['nssocket.js'][208] = 0;
+  _$jscoverage['nssocket.js'][202] = 0;
+  _$jscoverage['nssocket.js'][205] = 0;
   _$jscoverage['nssocket.js'][209] = 0;
   _$jscoverage['nssocket.js'][211] = 0;
   _$jscoverage['nssocket.js'][212] = 0;
+  _$jscoverage['nssocket.js'][213] = 0;
   _$jscoverage['nssocket.js'][214] = 0;
+  _$jscoverage['nssocket.js'][216] = 0;
   _$jscoverage['nssocket.js'][217] = 0;
-  _$jscoverage['nssocket.js'][218] = 0;
   _$jscoverage['nssocket.js'][219] = 0;
   _$jscoverage['nssocket.js'][222] = 0;
   _$jscoverage['nssocket.js'][223] = 0;
+  _$jscoverage['nssocket.js'][224] = 0;
+  _$jscoverage['nssocket.js'][227] = 0;
   _$jscoverage['nssocket.js'][228] = 0;
-  _$jscoverage['nssocket.js'][229] = 0;
-  _$jscoverage['nssocket.js'][230] = 0;
-  _$jscoverage['nssocket.js'][231] = 0;
-  _$jscoverage['nssocket.js'][232] = 0;
   _$jscoverage['nssocket.js'][233] = 0;
   _$jscoverage['nssocket.js'][234] = 0;
+  _$jscoverage['nssocket.js'][235] = 0;
   _$jscoverage['nssocket.js'][236] = 0;
-  _$jscoverage['nssocket.js'][240] = 0;
+  _$jscoverage['nssocket.js'][237] = 0;
+  _$jscoverage['nssocket.js'][238] = 0;
+  _$jscoverage['nssocket.js'][239] = 0;
   _$jscoverage['nssocket.js'][241] = 0;
-  _$jscoverage['nssocket.js'][242] = 0;
-  _$jscoverage['nssocket.js'][243] = 0;
   _$jscoverage['nssocket.js'][245] = 0;
   _$jscoverage['nssocket.js'][246] = 0;
   _$jscoverage['nssocket.js'][247] = 0;
   _$jscoverage['nssocket.js'][248] = 0;
   _$jscoverage['nssocket.js'][250] = 0;
   _$jscoverage['nssocket.js'][251] = 0;
+  _$jscoverage['nssocket.js'][252] = 0;
   _$jscoverage['nssocket.js'][253] = 0;
   _$jscoverage['nssocket.js'][255] = 0;
   _$jscoverage['nssocket.js'][256] = 0;
-  _$jscoverage['nssocket.js'][259] = 0;
-  _$jscoverage['nssocket.js'][262] = 0;
-  _$jscoverage['nssocket.js'][265] = 0;
-  _$jscoverage['nssocket.js'][266] = 0;
+  _$jscoverage['nssocket.js'][258] = 0;
+  _$jscoverage['nssocket.js'][260] = 0;
+  _$jscoverage['nssocket.js'][261] = 0;
+  _$jscoverage['nssocket.js'][264] = 0;
   _$jscoverage['nssocket.js'][267] = 0;
-  _$jscoverage['nssocket.js'][269] = 0;
   _$jscoverage['nssocket.js'][270] = 0;
+  _$jscoverage['nssocket.js'][271] = 0;
   _$jscoverage['nssocket.js'][272] = 0;
+  _$jscoverage['nssocket.js'][273] = 0;
   _$jscoverage['nssocket.js'][275] = 0;
+  _$jscoverage['nssocket.js'][276] = 0;
   _$jscoverage['nssocket.js'][278] = 0;
-  _$jscoverage['nssocket.js'][279] = 0;
-  _$jscoverage['nssocket.js'][282] = 0;
-  _$jscoverage['nssocket.js'][283] = 0;
+  _$jscoverage['nssocket.js'][281] = 0;
   _$jscoverage['nssocket.js'][284] = 0;
+  _$jscoverage['nssocket.js'][285] = 0;
+  _$jscoverage['nssocket.js'][288] = 0;
+  _$jscoverage['nssocket.js'][289] = 0;
+  _$jscoverage['nssocket.js'][290] = 0;
 }
 _$jscoverage['nssocket.js'][1]++;
 var net = require("net"), tls = require("tls"), util = require("util"), assert = require("chai").assert, EventEmitter2 = require("eventemitter2").EventEmitter2, bufferjoiner = require("bufferjoiner");
 _$jscoverage['nssocket.js'][8]++;
 module.exports = NsSocket;
-_$jscoverage['nssocket.js'][9]++;
+_$jscoverage['nssocket.js'][10]++;
+module.exports.createClient = NsSocket;
+_$jscoverage['nssocket.js'][12]++;
 module.exports.createServer = (function createServer(options, connectionListener) {
-  _$jscoverage['nssocket.js'][10]++;
+  _$jscoverage['nssocket.js'][13]++;
   if (! connectionListener && typeof options === "function") {
-    _$jscoverage['nssocket.js'][11]++;
+    _$jscoverage['nssocket.js'][14]++;
     connectionListener = options;
-    _$jscoverage['nssocket.js'][12]++;
+    _$jscoverage['nssocket.js'][15]++;
     options = {};
   }
-  _$jscoverage['nssocket.js'][15]++;
-  options.type = options.type || "tcp4";
-  _$jscoverage['nssocket.js'][16]++;
-  options.delimiter = options.delimiter || "::";
   _$jscoverage['nssocket.js'][18]++;
+  options.type = options.type || "tcp4";
+  _$jscoverage['nssocket.js'][19]++;
+  options.delimiter = options.delimiter || "::";
+  _$jscoverage['nssocket.js'][21]++;
   function onConnection(socket) {
-    _$jscoverage['nssocket.js'][19]++;
+    _$jscoverage['nssocket.js'][23]++;
     options.reconnect = false;
-    _$jscoverage['nssocket.js'][20]++;
+    _$jscoverage['nssocket.js'][24]++;
     connectionListener(new NsSocket(options, socket));
 }
-  _$jscoverage['nssocket.js'][23]++;
+  _$jscoverage['nssocket.js'][27]++;
   return options.type === "tls"? tls.createServer(options, onConnection): net.createServer(options, onConnection);
 });
-_$jscoverage['nssocket.js'][29]++;
-module.exports.data = module.exports.ondata;
-_$jscoverage['nssocket.js'][30]++;
-module.exports.unData = module.exports.offdata;
-_$jscoverage['nssocket.js'][31]++;
-module.exports.dataOnce = module.exports.oncedata;
 _$jscoverage['nssocket.js'][33]++;
+module.exports.data = module.exports.ondata;
+_$jscoverage['nssocket.js'][34]++;
+module.exports.unData = module.exports.offdata;
+_$jscoverage['nssocket.js'][35]++;
+module.exports.dataOnce = module.exports.oncedata;
+_$jscoverage['nssocket.js'][37]++;
 function NsSocket(options, socket) {
-  _$jscoverage['nssocket.js'][34]++;
+  _$jscoverage['nssocket.js'][38]++;
   if (! (this instanceof NsSocket)) {
-    _$jscoverage['nssocket.js'][35]++;
+    _$jscoverage['nssocket.js'][39]++;
     return new NsSocket(options, socket);
   }
-  _$jscoverage['nssocket.js'][38]++;
+  _$jscoverage['nssocket.js'][42]++;
   if (! options) {
-    _$jscoverage['nssocket.js'][39]++;
+    _$jscoverage['nssocket.js'][43]++;
     options = socket || {};
   }
-  _$jscoverage['nssocket.js'][42]++;
+  _$jscoverage['nssocket.js'][46]++;
   this.connected = false;
-  _$jscoverage['nssocket.js'][43]++;
+  _$jscoverage['nssocket.js'][47]++;
   this.type = options.type || "tcp4";
-  _$jscoverage['nssocket.js'][44]++;
-  this.retry = options.reconnect? {retries: 0, max: options.maxRetries || 10, interval: options.retryInterval || 5000, wait: options.retryInterval || 5000}: false;
-  _$jscoverage['nssocket.js'][51]++;
+  _$jscoverage['nssocket.js'][48]++;
+  this.retry = options.reconnect? {retries: 0, max: options.maxRetries || 10, wait: options.retryInterval || 5000, timeoutId: undefined}: false;
+  _$jscoverage['nssocket.js'][55]++;
   EventEmitter2.call(this, {delimiter: options.delimiter || "::", wildcard: true, maxListeners: options.maxListeners || 10});
-  _$jscoverage['nssocket.js'][57]++;
+  _$jscoverage['nssocket.js'][61]++;
   if (socket) {
-    _$jscoverage['nssocket.js'][58]++;
+    _$jscoverage['nssocket.js'][62]++;
     this.stream = socket;
-    _$jscoverage['nssocket.js'][59]++;
+    _$jscoverage['nssocket.js'][63]++;
     this.socket = this.stream instanceof net.Socket? this.stream: this.stream.socket;
-    _$jscoverage['nssocket.js'][60]++;
+    _$jscoverage['nssocket.js'][64]++;
     this.connected = this.socket.writable && this.socket.readable || false;
-    _$jscoverage['nssocket.js'][61]++;
+    _$jscoverage['nssocket.js'][65]++;
     configureEvents(this);
   }
 }
-_$jscoverage['nssocket.js'][65]++;
+_$jscoverage['nssocket.js'][69]++;
 util.inherits(NsSocket, EventEmitter2);
-_$jscoverage['nssocket.js'][67]++;
+_$jscoverage['nssocket.js'][71]++;
 NsSocket.prototype.connect = (function connect(port) {
-  _$jscoverage['nssocket.js'][68]++;
+  _$jscoverage['nssocket.js'][72]++;
+  this.retry.timeoutId && clearTimeout(this.retry.timeoutId);
+  _$jscoverage['nssocket.js'][74]++;
   if (! this.socket) {
-    _$jscoverage['nssocket.js'][69]++;
+    _$jscoverage['nssocket.js'][75]++;
     var module = this.type === "tls"? tls: net;
-    _$jscoverage['nssocket.js'][71]++;
+    _$jscoverage['nssocket.js'][77]++;
     this.stream = module.connect.apply(null, arguments);
-    _$jscoverage['nssocket.js'][72]++;
+    _$jscoverage['nssocket.js'][78]++;
     this.socket = this.stream instanceof net.Socket? this.stream: this.stream.socket;
-    _$jscoverage['nssocket.js'][73]++;
+    _$jscoverage['nssocket.js'][79]++;
     this.connected = this.socket.writable && this.socket.readable || false;
-    _$jscoverage['nssocket.js'][74]++;
+    _$jscoverage['nssocket.js'][80]++;
     this.connectionArgs = arguments;
-    _$jscoverage['nssocket.js'][76]++;
+    _$jscoverage['nssocket.js'][82]++;
     configureEvents(this);
   }
   else {
-    _$jscoverage['nssocket.js'][78]++;
+    _$jscoverage['nssocket.js'][84]++;
     this.socket.connect.apply(this.socket, arguments);
   }
-  _$jscoverage['nssocket.js'][80]++;
+  _$jscoverage['nssocket.js'][86]++;
   return this;
 });
-_$jscoverage['nssocket.js'][83]++;
+_$jscoverage['nssocket.js'][89]++;
 NsSocket.prototype.write = (function write(buff) {
-  _$jscoverage['nssocket.js'][84]++;
-  this.stream.write(buff);
-});
-_$jscoverage['nssocket.js'][87]++;
-NsSocket.prototype.send = (function send(event, data, callback) {
-  _$jscoverage['nssocket.js'][89]++;
+  _$jscoverage['nssocket.js'][91]++;
   if (! this.socket || ! this.connected) {
-    _$jscoverage['nssocket.js'][90]++;
+    _$jscoverage['nssocket.js'][92]++;
     return this.emit("error", new Error("NsSocket: sending on a bad socket"));
   }
-  _$jscoverage['nssocket.js'][93]++;
-  var dataType = typeof data;
   _$jscoverage['nssocket.js'][94]++;
+  this.stream.write(buff);
+  _$jscoverage['nssocket.js'][95]++;
+  return this;
+});
+_$jscoverage['nssocket.js'][98]++;
+NsSocket.prototype.send = (function send(event, data, callback) {
+  _$jscoverage['nssocket.js'][100]++;
+  if (! this.socket || ! this.connected) {
+    _$jscoverage['nssocket.js'][101]++;
+    return this.emit("error", new Error("NsSocket: sending on a bad socket"));
+  }
+  _$jscoverage['nssocket.js'][104]++;
+  var dataType = typeof data;
+  _$jscoverage['nssocket.js'][105]++;
   if (dataType === "undefined" || dataType === "function") {
-    _$jscoverage['nssocket.js'][95]++;
+    _$jscoverage['nssocket.js'][106]++;
     callback = data;
-    _$jscoverage['nssocket.js'][96]++;
+    _$jscoverage['nssocket.js'][107]++;
     data = null;
   }
-  _$jscoverage['nssocket.js'][99]++;
+  _$jscoverage['nssocket.js'][110]++;
   this.stream.write(this.createMessage(event, data), callback);
+  _$jscoverage['nssocket.js'][111]++;
+  return this;
 });
-_$jscoverage['nssocket.js'][102]++;
+_$jscoverage['nssocket.js'][114]++;
 NsSocket.prototype.createMessage = (function createMessage(event, data) {
-  _$jscoverage['nssocket.js'][103]++;
+  _$jscoverage['nssocket.js'][115]++;
   var header = new Buffer(9);
-  _$jscoverage['nssocket.js'][105]++;
+  _$jscoverage['nssocket.js'][117]++;
   if (typeof event === "string") {
-    _$jscoverage['nssocket.js'][106]++;
+    _$jscoverage['nssocket.js'][118]++;
     event = event.split(this.delimiter);
   }
-  _$jscoverage['nssocket.js'][109]++;
+  _$jscoverage['nssocket.js'][121]++;
   event = Buffer(JSON.stringify(event));
-  _$jscoverage['nssocket.js'][111]++;
+  _$jscoverage['nssocket.js'][123]++;
   if (Buffer.isBuffer(data)) {
-    _$jscoverage['nssocket.js'][112]++;
+    _$jscoverage['nssocket.js'][124]++;
     header.writeInt8(1, 8);
   }
   else {
-    _$jscoverage['nssocket.js'][114]++;
+    _$jscoverage['nssocket.js'][126]++;
     data = Buffer(JSON.stringify(data));
-    _$jscoverage['nssocket.js'][115]++;
+    _$jscoverage['nssocket.js'][127]++;
     header.writeInt8(0, 8);
   }
-  _$jscoverage['nssocket.js'][118]++;
+  _$jscoverage['nssocket.js'][130]++;
   header.writeUInt32BE(event.length, 0);
-  _$jscoverage['nssocket.js'][119]++;
+  _$jscoverage['nssocket.js'][131]++;
   header.writeUInt32BE(data.length, 4);
-  _$jscoverage['nssocket.js'][121]++;
+  _$jscoverage['nssocket.js'][133]++;
   return Buffer.concat([header, event, data], 9 + event.length + data.length);
 });
-_$jscoverage['nssocket.js'][124]++;
+_$jscoverage['nssocket.js'][136]++;
 NsSocket.prototype.ondata = (function (event, listener) {
-  _$jscoverage['nssocket.js'][125]++;
+  _$jscoverage['nssocket.js'][137]++;
   if (typeof event === "string") {
-    _$jscoverage['nssocket.js'][126]++;
+    _$jscoverage['nssocket.js'][138]++;
     event = event.split(this.delimiter);
   }
-  _$jscoverage['nssocket.js'][128]++;
+  _$jscoverage['nssocket.js'][140]++;
   return this.on(["data"].concat(event), listener);
 });
-_$jscoverage['nssocket.js'][131]++;
+_$jscoverage['nssocket.js'][143]++;
 NsSocket.prototype.offdata = (function (event, listener) {
-  _$jscoverage['nssocket.js'][132]++;
+  _$jscoverage['nssocket.js'][144]++;
   return this.off(["data"].concat(event), listener);
 });
-_$jscoverage['nssocket.js'][135]++;
+_$jscoverage['nssocket.js'][147]++;
 NsSocket.prototype.oncedata = (function (event, listener) {
-  _$jscoverage['nssocket.js'][136]++;
+  _$jscoverage['nssocket.js'][148]++;
   if (typeof event === "string") {
-    _$jscoverage['nssocket.js'][137]++;
+    _$jscoverage['nssocket.js'][149]++;
     event = event.split(this.delimiter);
   }
-  _$jscoverage['nssocket.js'][139]++;
+  _$jscoverage['nssocket.js'][151]++;
   return this.once(["data"].concat(event), listener);
 });
-_$jscoverage['nssocket.js'][142]++;
+_$jscoverage['nssocket.js'][154]++;
 NsSocket.prototype.setIdle = (function setIdle(timeout) {
-  _$jscoverage['nssocket.js'][143]++;
+  _$jscoverage['nssocket.js'][155]++;
   this.socket.setTimeout(timeout);
-  _$jscoverage['nssocket.js'][144]++;
+  _$jscoverage['nssocket.js'][156]++;
   this.timeout = timeout;
 });
-_$jscoverage['nssocket.js'][147]++;
+_$jscoverage['nssocket.js'][159]++;
 NsSocket.prototype.destroy = (function destroy() {
-  _$jscoverage['nssocket.js'][148]++;
-  this.removeAllListeners();
-  _$jscoverage['nssocket.js'][150]++;
-  try {
-    _$jscoverage['nssocket.js'][151]++;
-    this.socket.end();
-    _$jscoverage['nssocket.js'][152]++;
-    this.socket.destroy();
-  }
-  catch (err) {
-  }
-  _$jscoverage['nssocket.js'][155]++;
-  this.emit("destroy");
-});
-_$jscoverage['nssocket.js'][158]++;
-NsSocket.prototype.end = (function end() {
-  _$jscoverage['nssocket.js'][159]++;
-  var hadErr;
   _$jscoverage['nssocket.js'][160]++;
-  this.connected = false;
+  this.removeAllListeners();
   _$jscoverage['nssocket.js'][162]++;
   try {
     _$jscoverage['nssocket.js'][163]++;
     this.socket.end();
+    _$jscoverage['nssocket.js'][164]++;
+    this.socket.destroy();
   }
   catch (err) {
-    _$jscoverage['nssocket.js'][165]++;
+  }
+  _$jscoverage['nssocket.js'][167]++;
+  this.emit("destroy");
+});
+_$jscoverage['nssocket.js'][170]++;
+NsSocket.prototype.end = (function end() {
+  _$jscoverage['nssocket.js'][171]++;
+  var hadErr;
+  _$jscoverage['nssocket.js'][172]++;
+  this.connected = false;
+  _$jscoverage['nssocket.js'][174]++;
+  try {
+    _$jscoverage['nssocket.js'][175]++;
+    this.socket.end();
+  }
+  catch (err) {
+    _$jscoverage['nssocket.js'][177]++;
     hadErr = true;
-    _$jscoverage['nssocket.js'][166]++;
+    _$jscoverage['nssocket.js'][178]++;
     this.emit("error", err);
   }
-  _$jscoverage['nssocket.js'][169]++;
+  _$jscoverage['nssocket.js'][181]++;
   this.emit("close", hadErr);
 });
-_$jscoverage['nssocket.js'][172]++;
+_$jscoverage['nssocket.js'][184]++;
 NsSocket.prototype.reconnect = (function reconnect() {
-  _$jscoverage['nssocket.js'][173]++;
-  var self = this;
-  _$jscoverage['nssocket.js'][175]++;
-  function doReconnect() {
-    _$jscoverage['nssocket.js'][176]++;
-    self.retry.waiting = true;
-    _$jscoverage['nssocket.js'][177]++;
-    self.socket && self.socket.destroy();
-    _$jscoverage['nssocket.js'][180]++;
-    assert.isFalse(self.connected, "before actually reconnect connected must be false");
-    _$jscoverage['nssocket.js'][181]++;
-    assert.isUndefined(self.socket, "before actually reconnect socket must be destroied");
-    _$jscoverage['nssocket.js'][183]++;
-    self.once("start", (function () {
-  _$jscoverage['nssocket.js'][184]++;
-  self.retry.waiting = false;
   _$jscoverage['nssocket.js'][185]++;
+  var self = this;
+  _$jscoverage['nssocket.js'][187]++;
+  this.retry.timeoutId = setTimeout((function tryReconnect() {
+  _$jscoverage['nssocket.js'][188]++;
+  self.retry.retries++;
+  _$jscoverage['nssocket.js'][190]++;
+  if (self.retry.retries >= self.retry.max) {
+    _$jscoverage['nssocket.js'][191]++;
+    return self.emit("error", new Error("Did not reconnect after maximum retries: " + self.retry.max));
+  }
+  _$jscoverage['nssocket.js'][194]++;
+  self.retry.waiting = true;
+  _$jscoverage['nssocket.js'][197]++;
+  assert.isFalse(self.connected, "before actually reconnect connected must be false");
+  _$jscoverage['nssocket.js'][198]++;
+  assert.isUndefined(self.socket, "before actually reconnect socket must be destroied");
+  _$jscoverage['nssocket.js'][200]++;
+  self.once("start", (function () {
+  _$jscoverage['nssocket.js'][201]++;
+  self.retry.waiting = false;
+  _$jscoverage['nssocket.js'][202]++;
   self.retry.retries = 0;
 }));
-    _$jscoverage['nssocket.js'][188]++;
-    self.connect.apply(self, self.connectionArgs);
-}
-  _$jscoverage['nssocket.js'][191]++;
-  function tryReconnect() {
-    _$jscoverage['nssocket.js'][192]++;
-    self.retry.retries++;
-    _$jscoverage['nssocket.js'][194]++;
-    if (self.retry.retries >= self.retry.max) {
-      _$jscoverage['nssocket.js'][195]++;
-      return self.emit("error", new Error("Did not reconnect after maximum retries: " + self.retry.max));
-    }
-    _$jscoverage['nssocket.js'][197]++;
-    doReconnect();
-}
-  _$jscoverage['nssocket.js'][200]++;
-  this.retry.wait = this.retry.interval * Math.pow(10, this.retry.retries);
-  _$jscoverage['nssocket.js'][201]++;
-  setTimeout(tryReconnect, this.retry.wait);
+  _$jscoverage['nssocket.js'][205]++;
+  self.connect.apply(self, self.connectionArgs);
+}), this.retry.wait);
 });
-_$jscoverage['nssocket.js'][204]++;
+_$jscoverage['nssocket.js'][209]++;
 function configureEvents(self) {
-  _$jscoverage['nssocket.js'][206]++;
-  var eventLength = -1;
-  _$jscoverage['nssocket.js'][207]++;
-  var messageLength = -1;
-  _$jscoverage['nssocket.js'][208]++;
-  var messagetype = 0;
-  _$jscoverage['nssocket.js'][209]++;
-  var bufferJoiner = bufferjoiner();
   _$jscoverage['nssocket.js'][211]++;
+  var eventLength = -1;
+  _$jscoverage['nssocket.js'][212]++;
+  var messageLength = -1;
+  _$jscoverage['nssocket.js'][213]++;
+  var messagetype = 0;
+  _$jscoverage['nssocket.js'][214]++;
+  var bufferJoiner = bufferjoiner();
+  _$jscoverage['nssocket.js'][216]++;
   if (self.type === "tls") {
-    _$jscoverage['nssocket.js'][212]++;
+    _$jscoverage['nssocket.js'][217]++;
     self.stream.on("secureConnect", onStart);
   }
   else {
-    _$jscoverage['nssocket.js'][214]++;
+    _$jscoverage['nssocket.js'][219]++;
     self.socket.on("connect", onStart);
   }
-  _$jscoverage['nssocket.js'][217]++;
+  _$jscoverage['nssocket.js'][222]++;
   function onStart() {
-    _$jscoverage['nssocket.js'][218]++;
+    _$jscoverage['nssocket.js'][223]++;
     self.connected = true;
-    _$jscoverage['nssocket.js'][219]++;
+    _$jscoverage['nssocket.js'][224]++;
     self.emit("start");
 }
-  _$jscoverage['nssocket.js'][222]++;
+  _$jscoverage['nssocket.js'][227]++;
   self.stream.on("data", (function onData(chunk) {
-  _$jscoverage['nssocket.js'][223]++;
+  _$jscoverage['nssocket.js'][228]++;
   ~ messageLength? fetchBody(chunk): fetchHeader(chunk);
 }));
-  _$jscoverage['nssocket.js'][228]++;
+  _$jscoverage['nssocket.js'][233]++;
   function fetchHeader(chunk) {
-    _$jscoverage['nssocket.js'][229]++;
+    _$jscoverage['nssocket.js'][234]++;
     if (bufferJoiner.length + chunk.length >= 9) {
-      _$jscoverage['nssocket.js'][230]++;
+      _$jscoverage['nssocket.js'][235]++;
       var header = bufferJoiner.add(chunk).join();
-      _$jscoverage['nssocket.js'][231]++;
+      _$jscoverage['nssocket.js'][236]++;
       eventLength = header.readUInt32BE(0);
-      _$jscoverage['nssocket.js'][232]++;
+      _$jscoverage['nssocket.js'][237]++;
       messageLength = header.readUInt32BE(4);
-      _$jscoverage['nssocket.js'][233]++;
+      _$jscoverage['nssocket.js'][238]++;
       messagetype = header.readInt8(8);
-      _$jscoverage['nssocket.js'][234]++;
+      _$jscoverage['nssocket.js'][239]++;
       fetchBody(chunk.slice(9));
     }
     else {
-      _$jscoverage['nssocket.js'][236]++;
+      _$jscoverage['nssocket.js'][241]++;
       bufferJoiner.add(chunk);
     }
 }
-  _$jscoverage['nssocket.js'][240]++;
+  _$jscoverage['nssocket.js'][245]++;
   function fetchBody(chunk) {
-    _$jscoverage['nssocket.js'][241]++;
+    _$jscoverage['nssocket.js'][246]++;
     var raw, event, data;
-    _$jscoverage['nssocket.js'][242]++;
+    _$jscoverage['nssocket.js'][247]++;
     var chunkLength = chunk.length;
-    _$jscoverage['nssocket.js'][243]++;
+    _$jscoverage['nssocket.js'][248]++;
     var bytesLeft = (eventLength + messageLength) - bufferJoiner.length;
-    _$jscoverage['nssocket.js'][245]++;
+    _$jscoverage['nssocket.js'][250]++;
     if (chunkLength >= bytesLeft) {
-      _$jscoverage['nssocket.js'][246]++;
-      raw = bufferJoiner.add(chunk.slice(0, bytesLeft)).join();
-      _$jscoverage['nssocket.js'][247]++;
-      event = JSON.parse(raw.slice(0, eventLength));
-      _$jscoverage['nssocket.js'][248]++;
-      data = messagetype? raw.slice(eventLength): JSON.parse(raw.slice(eventLength).toString());
-      _$jscoverage['nssocket.js'][250]++;
-      eventLength = -1;
       _$jscoverage['nssocket.js'][251]++;
-      messageLength = -1;
+      raw = bufferJoiner.add(chunk.slice(0, bytesLeft)).join();
+      _$jscoverage['nssocket.js'][252]++;
+      event = JSON.parse(raw.slice(0, eventLength));
       _$jscoverage['nssocket.js'][253]++;
-      self.emit(["data"].concat(event), data);
+      data = messagetype? raw.slice(eventLength): JSON.parse(raw.slice(eventLength).toString());
       _$jscoverage['nssocket.js'][255]++;
+      eventLength = -1;
+      _$jscoverage['nssocket.js'][256]++;
+      messageLength = -1;
+      _$jscoverage['nssocket.js'][258]++;
+      self.emit(["data"].concat(event), data);
+      _$jscoverage['nssocket.js'][260]++;
       if (chunkLength - bytesLeft) {
-        _$jscoverage['nssocket.js'][256]++;
+        _$jscoverage['nssocket.js'][261]++;
         fetchHeader(chunk.slice(bytesLeft));
       }
-      _$jscoverage['nssocket.js'][259]++;
+      _$jscoverage['nssocket.js'][264]++;
       return;
     }
-    _$jscoverage['nssocket.js'][262]++;
+    _$jscoverage['nssocket.js'][267]++;
     bufferJoiner.add(chunk);
 }
-  _$jscoverage['nssocket.js'][265]++;
+  _$jscoverage['nssocket.js'][270]++;
   self.socket.on("close", (function onClose(hadError) {
-  _$jscoverage['nssocket.js'][266]++;
+  _$jscoverage['nssocket.js'][271]++;
+  self.socket.destroy();
+  _$jscoverage['nssocket.js'][272]++;
   self.socket = undefined;
-  _$jscoverage['nssocket.js'][267]++;
+  _$jscoverage['nssocket.js'][273]++;
   self.connected = false;
-  _$jscoverage['nssocket.js'][269]++;
+  _$jscoverage['nssocket.js'][275]++;
   if (hadError) {
-    _$jscoverage['nssocket.js'][270]++;
+    _$jscoverage['nssocket.js'][276]++;
     self.emit("close", hadError, arguments[1]);
   }
   else {
-    _$jscoverage['nssocket.js'][272]++;
+    _$jscoverage['nssocket.js'][278]++;
     self.emit("close");
   }
-  _$jscoverage['nssocket.js'][275]++;
+  _$jscoverage['nssocket.js'][281]++;
   self.retry && self.reconnect();
 }));
-  _$jscoverage['nssocket.js'][278]++;
+  _$jscoverage['nssocket.js'][284]++;
   self.socket.on("error", (function (err) {
-  _$jscoverage['nssocket.js'][279]++;
+  _$jscoverage['nssocket.js'][285]++;
   ! self.retry && self.emit("error", err || new Error("An Unknown Error occured"));
 }));
-  _$jscoverage['nssocket.js'][282]++;
+  _$jscoverage['nssocket.js'][288]++;
   self.socket.on("timeout", (function onIdle() {
-  _$jscoverage['nssocket.js'][283]++;
+  _$jscoverage['nssocket.js'][289]++;
   self.emit("idle");
-  _$jscoverage['nssocket.js'][284]++;
+  _$jscoverage['nssocket.js'][290]++;
   self.timeout && self.socket.setTimeout(this.timeout);
 }));
 }
-_$jscoverage['nssocket.js'].source = ["var net = require('net'),","    tls = require('tls'),","    util = require('util'),","    assert = require('chai').assert,","    EventEmitter2 = require('eventemitter2').EventEmitter2,","    bufferjoiner = require('bufferjoiner')","","module.exports = NsSocket","module.exports.createServer = function createServer(options, connectionListener) {","  if (!connectionListener &amp;&amp; typeof options === 'function') {","    connectionListener = options","    options = {}","  }","","  options.type = options.type || 'tcp4'","  options.delimiter = options.delimiter || '::'","","  function onConnection (socket) {","    options.reconnect = false","    connectionListener(new NsSocket(options, socket))","  }","","  return options.type === 'tls'","    ? tls.createServer(options, onConnection)","    : net.createServer(options, onConnection)","}","","// retro compatibility fixes","module.exports.data = module.exports.ondata","module.exports.unData = module.exports.offdata","module.exports.dataOnce = module.exports.oncedata","","function NsSocket(options, socket) {","  if (!(this instanceof NsSocket)) {","    return new NsSocket(options, socket)","  }","","  if (!options) {","    options = socket || {}","  }","","  this.connected = false","  this.type = options.type || 'tcp4'","  this.retry = options.reconnect ? {","    retries: 0,","    max: options.maxRetries || 10,","    interval: options.retryInterval || 5000,","    wait: options.retryInterval || 5000","  } : false","","  EventEmitter2.call(this, {","    delimiter: options.delimiter || '::',","    wildcard: true,","    maxListeners: options.maxListeners || 10","  })","","  if (socket) {","    this.stream = socket","    this.socket = this.stream instanceof net.Socket ? this.stream : this.stream.socket","    this.connected = this.socket.writable &amp;&amp; this.socket.readable || false","    configureEvents(this)","  }","}","","util.inherits(NsSocket, EventEmitter2)","","NsSocket.prototype.connect = function connect(port) {","  if (!this.socket) {","    var module = this.type === 'tls' ? tls : net","","    this.stream = module.connect.apply(null, arguments)","    this.socket = this.stream instanceof net.Socket ? this.stream : this.stream.socket","    this.connected = this.socket.writable &amp;&amp; this.socket.readable || false","    this.connectionArgs = arguments","","    configureEvents(this)","  } else {","    this.socket.connect.apply(this.socket, arguments)","  }","  return this","}","","NsSocket.prototype.write = function write(buff) {","  this.stream.write(buff)","}","","NsSocket.prototype.send = function send(event, data, callback) {","  // if we aren't connected/socketed, then error","  if (!this.socket || !this.connected) {","    return this.emit('error', new Error('NsSocket: sending on a bad socket'))","  }","","  var dataType = typeof data","  if (dataType === 'undefined' || dataType === 'function') {","    callback = data","    data = null","  }","","  this.stream.write(this.createMessage(event, data), callback)","}","","NsSocket.prototype.createMessage = function createMessage(event, data) {","  var header = new Buffer(9)","","  if (typeof event === 'string') {","    event = event.split(this.delimiter)","  }","","  event = Buffer(JSON.stringify(event))","","  if (Buffer.isBuffer(data)) {","    header.writeInt8(1, 8)","  } else {","    data = Buffer(JSON.stringify(data))","    header.writeInt8(0, 8)","  }","","  header.writeUInt32BE(event.length, 0)","  header.writeUInt32BE(data.length, 4)","","  return Buffer.concat([header, event, data], 9 + event.length + data.length)","}","","NsSocket.prototype.ondata = function (event, listener) {","  if (typeof event === 'string') {","    event = event.split(this.delimiter)","  }","  return this.on(['data'].concat(event), listener)","}","","NsSocket.prototype.offdata = function (event, listener) {","  return this.off(['data'].concat(event), listener)","}","","NsSocket.prototype.oncedata = function (event, listener) {","  if (typeof event === 'string') {","    event = event.split(this.delimiter)","  }","  return this.once(['data'].concat(event), listener)","}","","NsSocket.prototype.setIdle = function setIdle(timeout) {","  this.socket.setTimeout(timeout)","  this.timeout = timeout","}","","NsSocket.prototype.destroy = function destroy() {","  this.removeAllListeners()","","  try {","    this.socket.end()","    this.socket.destroy()","  } catch (err) {}","","  this.emit('destroy')","}","","NsSocket.prototype.end = function end() {","  var hadErr","  this.connected = false","","  try {","    this.socket.end()","  } catch (err) {","    hadErr = true","    this.emit('error', err)","  }","","  this.emit('close', hadErr)","}","","NsSocket.prototype.reconnect = function reconnect() {","  var self = this","","  function doReconnect() {","    self.retry.waiting = true","    self.socket &amp;&amp; self.socket.destroy()","","    // here for debugging reasons","    assert.isFalse(self.connected, 'before actually reconnect connected must be false')","    assert.isUndefined(self.socket, 'before actually reconnect socket must be destroied')","","    self.once('start', function () {","      self.retry.waiting = false","      self.retry.retries = 0","    })","","    self.connect.apply(self, self.connectionArgs)","  }","","  function tryReconnect() {","    self.retry.retries ++","","    if (self.retry.retries &gt;= self.retry.max) {","      return self.emit('error', new Error('Did not reconnect after maximum retries: ' + self.retry.max))","    }","    doReconnect()","  }","","  this.retry.wait = this.retry.interval * Math.pow(10, this.retry.retries)","  setTimeout(tryReconnect, this.retry.wait)","}","","function configureEvents(self) {","  // parsing holders","  var eventLength = -1","  var messageLength = -1","  var messagetype = 0","  var bufferJoiner = bufferjoiner()","","  if (self.type === 'tls') {","    self.stream.on('secureConnect', onStart)","  } else {","    self.socket.on('connect', onStart)","  }","","  function onStart() {","    self.connected = true","    self.emit('start')","  }","","  self.stream.on('data', function onData(chunk) {","    ~messageLength","      ? fetchBody(chunk)","      : fetchHeader(chunk)","  })","","  function fetchHeader(chunk) {","    if (bufferJoiner.length + chunk.length &gt;= 9) {","      var header = bufferJoiner.add(chunk).join()","      eventLength = header.readUInt32BE(0)","      messageLength = header.readUInt32BE(4)","      messagetype = header.readInt8(8)","      fetchBody(chunk.slice(9))","    } else {","      bufferJoiner.add(chunk)","    }","  }","","  function fetchBody(chunk) {","    var raw, event, data","    var chunkLength = chunk.length","    var bytesLeft = (eventLength + messageLength) - bufferJoiner.length","","    if (chunkLength &gt;= bytesLeft) {","      raw = bufferJoiner.add(chunk.slice(0, bytesLeft)).join()","      event = JSON.parse(raw.slice(0, eventLength))","      data = messagetype ? raw.slice(eventLength) : JSON.parse(raw.slice(eventLength).toString())","","      eventLength = -1","      messageLength = -1","","      self.emit(['data'].concat(event), data)","","      if (chunkLength - bytesLeft) {","        fetchHeader(chunk.slice(bytesLeft))","      }","","      return","    }","","    bufferJoiner.add(chunk)","  }","","  self.socket.on('close', function onClose(hadError) {","    self.socket = undefined","    self.connected = false","","    if (hadError) {","      self.emit('close', hadError, arguments[1])","    } else {","      self.emit('close')","    }","","    self.retry &amp;&amp; self.reconnect()","  })","","  self.socket.on('error', function (err) {","    !self.retry &amp;&amp; self.emit('error', err || new Error('An Unknown Error occured'))","  })","","  self.socket.on('timeout', function onIdle() {","    self.emit('idle')","    self.timeout &amp;&amp; self.socket.setTimeout(this.timeout)","  })","}"];
+_$jscoverage['nssocket.js'].source = ["var net = require('net'),","    tls = require('tls'),","    util = require('util'),","    assert = require('chai').assert,","    EventEmitter2 = require('eventemitter2').EventEmitter2,","    bufferjoiner = require('bufferjoiner')","","module.exports = NsSocket","","module.exports.createClient = NsSocket","","module.exports.createServer = function createServer(options, connectionListener) {","  if (!connectionListener &amp;&amp; typeof options === 'function') {","    connectionListener = options","    options = {}","  }","","  options.type = options.type || 'tcp4'","  options.delimiter = options.delimiter || '::'","","  function onConnection (socket) {","    // inbounds sockets can not reconnect by definition","    options.reconnect = false","    connectionListener(new NsSocket(options, socket))","  }","","  return options.type === 'tls'","    ? tls.createServer(options, onConnection)","    : net.createServer(options, onConnection)","}","","// retro compatibility fixes","module.exports.data = module.exports.ondata","module.exports.unData = module.exports.offdata","module.exports.dataOnce = module.exports.oncedata","","function NsSocket(options, socket) {","  if (!(this instanceof NsSocket)) {","    return new NsSocket(options, socket)","  }","","  if (!options) {","    options = socket || {}","  }","","  this.connected = false","  this.type = options.type || 'tcp4'","  this.retry = options.reconnect ? {","    retries: 0,","    max: options.maxRetries || 10,","    wait: options.retryInterval || 5000,","    timeoutId: undefined","  } : false","","  EventEmitter2.call(this, {","    delimiter: options.delimiter || '::',","    wildcard: true,","    maxListeners: options.maxListeners || 10","  })","","  if (socket) {","    this.stream = socket","    this.socket = this.stream instanceof net.Socket ? this.stream : this.stream.socket","    this.connected = this.socket.writable &amp;&amp; this.socket.readable || false","    configureEvents(this)","  }","}","","util.inherits(NsSocket, EventEmitter2)","","NsSocket.prototype.connect = function connect(port) {","  this.retry.timeoutId &amp;&amp; clearTimeout(this.retry.timeoutId)","","  if (!this.socket) {","    var module = this.type === 'tls' ? tls : net","","    this.stream = module.connect.apply(null, arguments)","    this.socket = this.stream instanceof net.Socket ? this.stream : this.stream.socket","    this.connected = this.socket.writable &amp;&amp; this.socket.readable || false","    this.connectionArgs = arguments","","    configureEvents(this)","  } else {","    this.socket.connect.apply(this.socket, arguments)","  }","  return this","}","","NsSocket.prototype.write = function write(buff) {","  // if we aren't connected/socketed, then error","  if (!this.socket || !this.connected) {","    return this.emit('error', new Error('NsSocket: sending on a bad socket'))","  }","  this.stream.write(buff)","  return this","}","","NsSocket.prototype.send = function send(event, data, callback) {","  // if we aren't connected/socketed, then error","  if (!this.socket || !this.connected) {","    return this.emit('error', new Error('NsSocket: sending on a bad socket'))","  }","","  var dataType = typeof data","  if (dataType === 'undefined' || dataType === 'function') {","    callback = data","    data = null","  }","","  this.stream.write(this.createMessage(event, data), callback)","  return this","}","","NsSocket.prototype.createMessage = function createMessage(event, data) {","  var header = new Buffer(9)","","  if (typeof event === 'string') {","    event = event.split(this.delimiter)","  }","","  event = Buffer(JSON.stringify(event))","","  if (Buffer.isBuffer(data)) {","    header.writeInt8(1, 8)","  } else {","    data = Buffer(JSON.stringify(data))","    header.writeInt8(0, 8)","  }","","  header.writeUInt32BE(event.length, 0)","  header.writeUInt32BE(data.length, 4)","","  return Buffer.concat([header, event, data], 9 + event.length + data.length)","}","","NsSocket.prototype.ondata = function (event, listener) {","  if (typeof event === 'string') {","    event = event.split(this.delimiter)","  }","  return this.on(['data'].concat(event), listener)","}","","NsSocket.prototype.offdata = function (event, listener) {","  return this.off(['data'].concat(event), listener)","}","","NsSocket.prototype.oncedata = function (event, listener) {","  if (typeof event === 'string') {","    event = event.split(this.delimiter)","  }","  return this.once(['data'].concat(event), listener)","}","","NsSocket.prototype.setIdle = function setIdle(timeout) {","  this.socket.setTimeout(timeout)","  this.timeout = timeout","}","","NsSocket.prototype.destroy = function destroy() {","  this.removeAllListeners()","","  try {","    this.socket.end()","    this.socket.destroy()","  } catch (err) {}","","  this.emit('destroy')","}","","NsSocket.prototype.end = function end() {","  var hadErr","  this.connected = false","","  try {","    this.socket.end()","  } catch (err) {","    hadErr = true","    this.emit('error', err)","  }","","  this.emit('close', hadErr)","}","","NsSocket.prototype.reconnect = function reconnect() {","  var self = this","","  this.retry.timeoutId = setTimeout(function tryReconnect() {","    self.retry.retries ++","","    if (self.retry.retries &gt;= self.retry.max) {","      return self.emit('error', new Error('Did not reconnect after maximum retries: ' + self.retry.max))","    }","","    self.retry.waiting = true","","    // here for debugging reasons","    assert.isFalse(self.connected, 'before actually reconnect connected must be false')","    assert.isUndefined(self.socket, 'before actually reconnect socket must be destroied')","","    self.once('start', function () {","      self.retry.waiting = false","      self.retry.retries = 0","    })","","    self.connect.apply(self, self.connectionArgs)","  }, this.retry.wait)","}","","function configureEvents(self) {","  // parsing holders","  var eventLength = -1","  var messageLength = -1","  var messagetype = 0","  var bufferJoiner = bufferjoiner()","","  if (self.type === 'tls') {","    self.stream.on('secureConnect', onStart)","  } else {","    self.socket.on('connect', onStart)","  }","","  function onStart() {","    self.connected = true","    self.emit('start')","  }","","  self.stream.on('data', function onData(chunk) {","    ~messageLength","      ? fetchBody(chunk)","      : fetchHeader(chunk)","  })","","  function fetchHeader(chunk) {","    if (bufferJoiner.length + chunk.length &gt;= 9) {","      var header = bufferJoiner.add(chunk).join()","      eventLength = header.readUInt32BE(0)","      messageLength = header.readUInt32BE(4)","      messagetype = header.readInt8(8)","      fetchBody(chunk.slice(9))","    } else {","      bufferJoiner.add(chunk)","    }","  }","","  function fetchBody(chunk) {","    var raw, event, data","    var chunkLength = chunk.length","    var bytesLeft = (eventLength + messageLength) - bufferJoiner.length","","    if (chunkLength &gt;= bytesLeft) {","      raw = bufferJoiner.add(chunk.slice(0, bytesLeft)).join()","      event = JSON.parse(raw.slice(0, eventLength))","      data = messagetype ? raw.slice(eventLength) : JSON.parse(raw.slice(eventLength).toString())","","      eventLength = -1","      messageLength = -1","","      self.emit(['data'].concat(event), data)","","      if (chunkLength - bytesLeft) {","        fetchHeader(chunk.slice(bytesLeft))","      }","","      return","    }","","    bufferJoiner.add(chunk)","  }","","  self.socket.on('close', function onClose(hadError) {","    self.socket.destroy()","    self.socket = undefined","    self.connected = false","","    if (hadError) {","      self.emit('close', hadError, arguments[1])","    } else {","      self.emit('close')","    }","","    self.retry &amp;&amp; self.reconnect()","  })","","  self.socket.on('error', function (err) {","    !self.retry &amp;&amp; self.emit('error', err || new Error('An Unknown Error occured'))","  })","","  self.socket.on('timeout', function onIdle() {","    self.emit('idle')","    self.timeout &amp;&amp; self.socket.setTimeout(this.timeout)","  })","}"];
