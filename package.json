@@ -16,14 +16,14 @@
     "eventemitter2": "0.4.x"
   },
   "devDependencies": {
-    "vows": "0.6.x"
+    "mocha": "1.3.x",
+    "chai": "1.0.x"
   },
-  "main": "./lib/nssocket",
+  "main": "./",
   "engines": {
     "node": ">= 0.7.x"
   },
   "scripts": {
-    "test": "vows test/*-test.js --spec"
+    "test": "make test"
   }
 }
-
