@@ -12,18 +12,18 @@
     "url": "http://github.com/nodejitsu/nssocket.git"
   },
   "dependencies": {
-    "bufferjoiner": "0.1.x",
-    "eventemitter2": "0.4.x"
+    "eventemitter2": "0.4.x",
+    "lazy": "1.0.x"
   },
   "devDependencies": {
-    "mocha": "1.3.x",
-    "chai": "1.0.x"
+    "vows": "0.6.x"
   },
-  "main": "./",
+  "main": "./lib/nssocket",
   "engines": {
-    "node": ">= 0.7.x"
+    "node": ">= 0.4.x"
   },
   "scripts": {
-    "test": "make test"
+    "test": "vows test/*-test.js --spec"
   }
 }
+
