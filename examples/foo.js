@@ -1,14 +1,10 @@
-var nss = require('../');
-var outbound = nss();
-
-//
-// Example to connect to bla.js
-//
-outbound
-  .on('data::broadcasting', function (data) {
-    console.log(data);
-  })
-  .connect(4949, function () {
-    outbound.send('connecting', { 'random' : Math.random()
-  });
+var nssocket = require('../lib/nssocket');
+var outbound = new nssocket.NsSocket();
+ 
+outbound.data('Broadcasting', function (data) {
+  console.log(data)
 });
+
+outbound.connect(4949);
+
+outbound.send('Connecting', { "random": Math.random() });

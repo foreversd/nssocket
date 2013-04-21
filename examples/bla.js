@@ -1,19 +1,18 @@
-var nss = require('../');
+
+var nssocket = require('../lib/nssocket');
 
 var sockets = [];
+var server = nssocket.createServer(function (socket) {
 
-//
-// Server code for foo.js to connect to
-//
-nss.createServer(function (socket) {
-  sockets.push(socket);
-  socket.ondata('connecting', function (data) {
-    console.log('There are now', sockets.length);
-    sockets.forEach(function (s) {
-      if (socket !== socket) {
-        s.send('broadcasting', data);
+	sockets.push(socket);
+
+    socket.data('Connecting', function (data) {
+      console.log("There are now", sockets.length);
+
+      for(var i=0, l=sockets.length; i<l; i++) {
+      	sockets[i].send('Broadcasting', data);
       }
+      console.dir(data);
     });
-   console.dir(data);
- });
+
 }).listen(4949);
