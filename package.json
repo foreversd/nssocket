@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "eventemitter2": "~0.4.11",
-    "lazy": "~1.0.9"
+    "lazy": "~1.0.11"
   },
   "devDependencies": {
     "vows": "0.7.x"
