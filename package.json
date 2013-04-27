@@ -1,7 +1,7 @@
 {
   "name": "nssocket",
   "description": "An elegant way to define lightweight protocols on-top of TCP/TLS sockets in node.js",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "author": "Nodejitsu Inc. <info@nodejitsu.com>",
   "maintainers": [
     "indexzero <charlie@nodejitsu.com>",
