@@ -24,6 +24,6 @@
   },
   "scripts": {
     "test": "vows test/*-test.js --spec"
-  }
+  },
+  "license": "MIT"
 }
-
