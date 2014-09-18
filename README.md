@@ -84,11 +84,13 @@ Although this is not as optimal as other message formats (pure binary, msgpack) 
   }).listen(8345);
   
   //
-  // Create an NsSocket instance with reconnect enabled
+  // Create an NsSocket instance with reconnect 
+  // and fibonacci retry strategy enabled
   //
   var socket = new nssocket.NsSocket({
     reconnect: true,
-    type: 'tcp4',
+    fibonacci: true,
+    type: 'tcp4'
   });
   
   socket.on('start', function () {
