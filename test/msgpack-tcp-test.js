@@ -1,7 +1,7 @@
 /*
  * msgpack-tcp-test.js : namespace socket unit test for Messagepack encoder/decoder.
  *
- * (C) 2011, Nodejitsu Inc.
+ * (C) 2011, Charlie Robbins, Paolo Fragomeni, & the Contributors.
  *
  */
 
