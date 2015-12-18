@@ -16,12 +16,12 @@
     "lazy": "~1.0.11"
   },
   "devDependencies": {
-    "vows": "~0.8.1",
-    "msgpack": "~0.2.4"
+    "msgpack": "^1.0.2",
+    "vows": "0.8.0"
   },
   "main": "./lib/nssocket",
   "engines": {
-    "node": ">= 0.8.x"
+    "node": ">= 0.10.x"
   },
   "scripts": {
     "test": "vows test/*-test.js --spec"
