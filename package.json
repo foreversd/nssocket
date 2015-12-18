@@ -21,7 +21,7 @@
   },
   "main": "./lib/nssocket",
   "engines": {
-    "node": ">= 0.8.x"
+    "node": ">= 0.10.x"
   },
   "scripts": {
     "test": "vows test/*-test.js --spec"
