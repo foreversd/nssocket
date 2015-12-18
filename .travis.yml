@@ -8,6 +8,7 @@ node_js:
 before_install:
   - g++ --version
   - travis_retry npm install -g npm@2.14.5
+  - travis_retry npm install -g node-gyp
   - travis_retry npm install
 
 script:
