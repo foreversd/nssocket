@@ -101,7 +101,7 @@ Although this is not as optimal as other message formats (pure binary, msgpack) 
   
   socket.connect(8345);
 ```
-
+ 
 # API
 
 ### socket.send(event, data) 
@@ -120,6 +120,9 @@ Helper function for performing shorthand listeners namespaced under the `data` e
   someSocket.on(['data', 'some', 'event'], function (data) { });
   someSocket.data(['some', 'event'], function (data) { });
 ```
+
+### socket.connect(port[, host, callback])
+Equivalent to the `.connect()` method of the underlying socket with additional error handling of the arguments passed
 
 ### socket.end()
  Closes the current socket, emits `close` event, possibly also `error`
