@@ -94,7 +94,7 @@ vows.describe('nssocket/msgpack').addBatch({
                 outbound.on('close', this.callback.bind(null, null, outbound, inbound));
                 inbound.end();
               },
-              "should close without errors": function (_, _, _, err) {
+              "should close without errors": function (_unused1, _unused2, _unused3, err) {
                 assert.isUndefined(err);
               }
             }
